@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "CLI4.0",
+			"path": "."
+		}
+	],
+	"settings": {}
+}

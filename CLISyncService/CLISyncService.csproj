@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-CLISyncService-60319c00-68e3-425b-a12c-239019b19a28</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentFTP" Version="49.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CLICore\CLICore.csproj" />
+    <ProjectReference Include="..\CLIPrestashopConnector\CLIPrestashopConnector.csproj" />
+  </ItemGroup>
+</Project>

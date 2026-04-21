@@ -1,0 +1,10 @@
+{
+    "workbench.colorCustomizations" : {
+    "statusBar.background" : "#6e4000",
+    "statusBar.noFolderBackground" : "#212121",
+    "statusBar.debuggingBackground": "#263238"
+},
+"dotnet.preferCSharpExtension": false,
+"dotnet.defaultSolution": "CLI.sln"
+}
+

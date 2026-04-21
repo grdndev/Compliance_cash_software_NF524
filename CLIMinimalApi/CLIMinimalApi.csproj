@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https (Prestashop local)' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https (Prestashop distant)' " />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.5.0" />
+    <PackageReference Include="PDFsharp" Version="1.50.5147" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.17" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CLIPrestashopConnector\CLIPrestashopConnector.csproj">
+      <GlobalPropertiesToRemove>
+      </GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Middleware\" />
+    <None Remove="Swashbuckle.AspNetCore.Annotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="misc\**" CopyToPublishDirectory="PreserveNewest" />
+    <Content Include="invoices\**" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Target Name="EnsureFolder" BeforeTargets="PrepareForPublish">
+    <MakeDir Directories="$(PublishDir)invoices" />
+    <MakeDir Directories="$(PublishDir)misc" />
+  </Target>
+</Project>

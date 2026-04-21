@@ -1,0 +1,25 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+
+EXPOSE 5030
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY ["CLIMinimalApi/CLIMinimalApi.csproj", "CLIMinimalApi/"]
+RUN dotnet restore "CLIMinimalApi/CLIMinimalApi.csproj"
+COPY . .
+WORKDIR "/src/CLIMinimalApi"
+RUN dotnet build "CLIMinimalApi.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "CLIMinimalApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+RUN mkdir invoices
+COPY ./server.pfx  /app
+
+ENTRYPOINT ["dotnet", "CLIMinimalApi.dll"]

@@ -1,0 +1,1398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="CLIConnectionString">
+      <rd:DataSourceID>dc245e0e-9fd5-4637-b111-5540d2f33112</rd:DataSourceID>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=192.168.1.3;Initial Catalog=CHINOOKSUR;User ID=chinooksur;</ConnectString>
+      </ConnectionProperties>
+    </DataSource>
+  </DataSources>
+  <InteractiveHeight>11in</InteractiveHeight>
+  <rd:DrawGrid>true</rd:DrawGrid>
+  <InteractiveWidth>8.5in</InteractiveWidth>
+  <rd:GridSpacing>0.25cm</rd:GridSpacing>
+  <rd:SnapToGrid>true</rd:SnapToGrid>
+  <RightMargin>2.5cm</RightMargin>
+  <LeftMargin>2.5cm</LeftMargin>
+  <BottomMargin>2.5cm</BottomMargin>
+  <rd:ReportID>9d96d554-9c4e-407c-a21d-5c9515dbb510</rd:ReportID>
+  <EmbeddedImages>
+    <EmbeddedImage Name="logo_chinooksurfshop">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAALYAAADVCAMAAADNTvrCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAKT2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjanVNnVFPpFj333vRCS4iAlEtvUhUIIFJCi4AUkSYqIQkQSoghodkVUcERRUUEG8igiAOOjoCMFVEsDIoK2AfkIaKOg6OIisr74Xuja9a89+bN/rXXPues852zzwfACAyWSDNRNYAMqUIeEeCDx8TG4eQuQIEKJHAAEAizZCFz/SMBAPh+PDwrIsAHvgABeNMLCADATZvAMByH/w/qQplcAYCEAcB0kThLCIAUAEB6jkKmAEBGAYCdmCZTAKAEAGDLY2LjAFAtAGAnf+bTAICd+Jl7AQBblCEVAaCRACATZYhEAGg7AKzPVopFAFgwABRmS8Q5ANgtADBJV2ZIALC3AMDOEAuyAAgMADBRiIUpAAR7AGDIIyN4AISZABRG8lc88SuuEOcqAAB4mbI8uSQ5RYFbCC1xB1dXLh4ozkkXKxQ2YQJhmkAuwnmZGTKBNA/g88wAAKCRFRHgg/P9eM4Ors7ONo62Dl8t6r8G/yJiYuP+5c+rcEAAAOF0ftH+LC+zGoA7BoBt/qIl7gRoXgugdfeLZrIPQLUAoOnaV/Nw+H48PEWhkLnZ2eXk5NhKxEJbYcpXff5nwl/AV/1s+X48/Pf14L7iJIEyXYFHBPjgwsz0TKUcz5IJhGLc5o9H/LcL//wd0yLESWK5WCoU41EScY5EmozzMqUiiUKSKcUl0v9k4t8s+wM+3zUAsGo+AXuRLahdYwP2SycQWHTA4vcAAPK7b8HUKAgDgGiD4c93/+8//UegJQCAZkmScQAAXkQkLlTKsz/HCAAARKCBKrBBG/TBGCzABhzBBdzBC/xgNoRCJMTCQhBCCmSAHHJgKayCQiiGzbAdKmAv1EAdNMBRaIaTcA4uwlW4Dj1wD/phCJ7BKLyBCQRB
+yAgTYSHaiAFiilgjjggXmYX4IcFIBBKLJCDJiBRRIkuRNUgxUopUIFVIHfI9cgI5h1xGupE7yAAygvyGvEcxlIGyUT3UDLVDuag3GoRGogvQZHQxmo8WoJvQcrQaPYw2oefQq2gP2o8+Q8cwwOgYBzPEbDAuxsNCsTgsCZNjy7EirAyrxhqwVqwDu4n1Y8+xdwQSgUXACTYEd0IgYR5BSFhMWE7YSKggHCQ0EdoJNwkDhFHCJyKTqEu0JroR+cQYYjIxh1hILCPWEo8TLxB7iEPENyQSiUMyJ7mQAkmxpFTSEtJG0m5SI+ksqZs0SBojk8naZGuyBzmULCAryIXkneTD5DPkG+Qh8lsKnWJAcaT4U+IoUspqShnlEOU05QZlmDJBVaOaUt2ooVQRNY9aQq2htlKvUYeoEzR1mjnNgxZJS6WtopXTGmgXaPdpr+h0uhHdlR5Ol9BX0svpR+iX6AP0dwwNhhWDx4hnKBmbGAcYZxl3GK+YTKYZ04sZx1QwNzHrmOeZD5lvVVgqtip8FZHKCpVKlSaVGyovVKmqpqreqgtV81XLVI+pXlN9rkZVM1PjqQnUlqtVqp1Q61MbU2epO6iHqmeob1Q/pH5Z/YkGWcNMw09DpFGgsV/jvMYgC2MZs3gsIWsNq4Z1gTXEJrHN2Xx2KruY/R27iz2qqaE5QzNKM1ezUvOUZj8H45hx+Jx0TgnnKKeX836K3hTvKeIpG6Y0TLkxZVxrqpaXllirSKtRq0frvTau7aedpr1Fu1n7gQ5Bx0onXCdHZ4/OBZ3nU9lT3acKpxZNPTr1ri6qa6UbobtEd79up+6Ynr5egJ5Mb6feeb3n+hx9L/1U/W36p/VHDFgGswwkBtsMzhg8xTVxbzwdL8fb8VFDXcNAQ6VhlWGX4YSRudE8o9VGjUYPjGnGXOMk423GbcajJgYmISZLTepN7ppSTbmmKaY7TDtMx83MzaLN1pk1mz0x1zLnm+eb15vft2BaeFo
+stqi2uGVJsuRaplnutrxuhVo5WaVYVVpds0atna0l1rutu6cRp7lOk06rntZnw7Dxtsm2qbcZsOXYBtuutm22fWFnYhdnt8Wuw+6TvZN9un2N/T0HDYfZDqsdWh1+c7RyFDpWOt6azpzuP33F9JbpL2dYzxDP2DPjthPLKcRpnVOb00dnF2e5c4PziIuJS4LLLpc+Lpsbxt3IveRKdPVxXeF60vWdm7Obwu2o26/uNu5p7ofcn8w0nymeWTNz0MPIQ+BR5dE/C5+VMGvfrH5PQ0+BZ7XnIy9jL5FXrdewt6V3qvdh7xc+9j5yn+M+4zw33jLeWV/MN8C3yLfLT8Nvnl+F30N/I/9k/3r/0QCngCUBZwOJgUGBWwL7+Hp8Ib+OPzrbZfay2e1BjKC5QRVBj4KtguXBrSFoyOyQrSH355jOkc5pDoVQfujW0Adh5mGLw34MJ4WHhVeGP45wiFga0TGXNXfR3ENz30T6RJZE3ptnMU85ry1KNSo+qi5qPNo3ujS6P8YuZlnM1VidWElsSxw5LiquNm5svt/87fOH4p3iC+N7F5gvyF1weaHOwvSFpxapLhIsOpZATIhOOJTwQRAqqBaMJfITdyWOCnnCHcJnIi/RNtGI2ENcKh5O8kgqTXqS7JG8NXkkxTOlLOW5hCepkLxMDUzdmzqeFpp2IG0yPTq9MYOSkZBxQqohTZO2Z+pn5mZ2y6xlhbL+xW6Lty8elQfJa7OQrAVZLQq2QqboVFoo1yoHsmdlV2a/zYnKOZarnivN7cyzytuQN5zvn//tEsIS4ZK2pYZLVy0dWOa9rGo5sjxxedsK4xUFK4ZWBqw8uIq2Km3VT6vtV5eufr0mek1rgV7ByoLBtQFr6wtVCuWFfevc1+1dT1gvWd+1YfqGnRs+FYmKrhTbF5cVf9go3HjlG4dvyr+Z3JS0qavEuWTPZtJm6ebeLZ5bDpaql+aXDm4N2dq0Dd9WtO319kXbL5fNKNu7g7ZDua
+O/PLi8ZafJzs07P1SkVPRU+lQ27tLdtWHX+G7R7ht7vPY07NXbW7z3/T7JvttVAVVN1WbVZftJ+7P3P66Jqun4lvttXa1ObXHtxwPSA/0HIw6217nU1R3SPVRSj9Yr60cOxx++/p3vdy0NNg1VjZzG4iNwRHnk6fcJ3/ceDTradox7rOEH0x92HWcdL2pCmvKaRptTmvtbYlu6T8w+0dbq3nr8R9sfD5w0PFl5SvNUyWna6YLTk2fyz4ydlZ19fi753GDborZ752PO32oPb++6EHTh0kX/i+c7vDvOXPK4dPKy2+UTV7hXmq86X23qdOo8/pPTT8e7nLuarrlca7nuer21e2b36RueN87d9L158Rb/1tWeOT3dvfN6b/fF9/XfFt1+cif9zsu72Xcn7q28T7xf9EDtQdlD3YfVP1v+3Njv3H9qwHeg89HcR/cGhYPP/pH1jw9DBY+Zj8uGDYbrnjg+OTniP3L96fynQ89kzyaeF/6i/suuFxYvfvjV69fO0ZjRoZfyl5O/bXyl/erA6xmv28bCxh6+yXgzMV70VvvtwXfcdx3vo98PT+R8IH8o/2j5sfVT0Kf7kxmTk/8EA5jz/GMzLdsAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAwBQTFRFQCMk9vXzjYyK4R8g0tHOsrGulR8j8Z+XuoR5+MzI5G1eysnHV05O7evpl5WTfYiLqael5EY73t3afn5+4+Phn52cu7m42NjWw8G+cWxrhIODgoKCg4OCAAAA////////ICAgISEhIiIiIyMjJCQkJSUlJiYmJycnKCgoKSkpKioqKysrLCwsLS0tLi4uLy8vMDAwMTExMjIyMzMzNDQ0NTU1NjY2Nzc3ODg4OTk5Ojo6Ozs7PDw8PT09Pj4+Pz8/QEBAQUFBQkJCQ0NDRERERUVFRkZGR0dHSEhISUlJSkpKS0tLTExMTU1NTk5OT09PU
+FBQUVFRUlJSU1NTVFRUVVVVVlZWV1dXWFhYWVlZWlpaW1tbXFxcXV1dXl5eX19fYGBgYWFhYmJiY2NjZGRkZWVlZmZmZ2dnaGhoaWlpampqa2trbGxsbW1tbm5ub29vcHBwcXFxcnJyc3NzdHR0dXV1dnZ2d3d3eHh4eXl5enp6e3t7fHx8fX19fn5+f39/gICAgYGBgoKCg4ODhISEhYWFhoaGh4eHiIiIiYmJioqKi4uLjIyMjY2Njo6Oj4+PkJCQkZGRkpKSk5OTlJSUlZWVlpaWl5eXmJiYmZmZmpqam5ubnJycnZ2dnp6en5+foKCgoaGhoqKio6OjpKSkpaWlpqamp6enqKioqampqqqqq6urrKysra2trq6ur6+vsLCwsbGxsrKys7OztLS0tbW1tra2t7e3uLi4ubm5urq6u7u7vLy8vb29vr6+v7+/wMDAwcHBwsLCw8PDxMTExcXFxsbGx8fHyMjIycnJysrKy8vLzMzMzc3Nzs7Oz8/P0NDQ0dHR0tLS09PT1NTU1dXV1tbW19fX2NjY2dnZ2tra29vb3Nzc3d3d3t7e39/f4ODg4eHh4uLi4+Pj5OTk5eXl5ubm5+fn6Ojo6enp6urq6+vr7Ozs7e3t7u7u7+/v8PDw8fHx8vLy8/Pz9PT09fX19vb29/f3+Pj4+fn5+vr6+/v7/Pz8/f39/v7+////HJiMDAAAACB0Uk5T/////////////////////////////////////////wBcXBvtAAAsIUlEQVR42tSdeVfjSLK3n8jU6gVjoKCobs98/6911Q1FFcbgVZKljPePlLxhG7ru1H3PeM6ZpmxL/ikyMvaIlH/zu14K8rvuLf/+bZj9/X/P7c3vRb3947+B2rtg5b8G9j6J5b+ESZTf/jK/EfXk9z2F+X2oH6Pst+E2v20dHy/48ttubi9/E7HzKA3sW/qbdqX5XajrBMnz/xJqt6jHNjZoYBe/idzBbyHG
+Mkm8SWL/K6jdEDvLhyIgBK4Kfwu5g9/BIgMrCqIiVP89ptTYpogIOI3t8rfI7uA/TWmYXIqKw6ggv8ty/c9QW3WHmkne3FhBYjfffKV9/f+H7THsARm7FFSaJZDEHntI/f8H2//6IYZskDjUQxZRUVd8uD7/d7BP/uwXUQFRp6hzYJLV2ZX6v4N9dpGrWlTFiRFRIzgIC/7jwINflReHr+zaah5Gs6W5A0RUERUnaFKeu5/8dthnafPNZBE5Za+bx4KCAYfBCW7Z8V6D6zNLx6P9m8rvhX0UdLbBsOjbGoj6a4wzgqBiVBEEgaWsmLOmXPAS18EO9l/CHfw66MwOA12vO/5fsf9PiQ2cUW0QK8jK5HnvOaqx1FhYlZS916jzv8H9OVPqPeiJqObViuly2Qdg9jNUIOyUoaiIGhVxArIyqUzK3VuoGq1mnSL8dd/+U7APUWexjhdlaVQx4brzMADSemUA0zFGRDEoalQU+2NxudjcwRptkOczTX4ZtvmHqIslMIzH1tb+jdo+agFw4f89Q7wgMSKg5D+onlrMqSbVbVpbf+F0vfGR/6naN5+Q0juKe/30nEFvuSvTbPSUA84/BWvnxZp67o5roW5AXy7+vPwzXHSvmzcevx4Q5tPIzedJneUvi7FFgJc9t6WOfvwF1QjAzg0gThCMc8ISF/mvRYtkBDC6Dk2Le/yLWv8D3t4BLcGkNkp4vwoZxIOZv9xzqnGdh5ssVFBNnvuCIs6ghjyOGuVex3ebm13UHlwYpCdifP8rau88+F2/tIC9fukAycTTq/R8in3sZveec8JrVTWiBgXHc6Pa7f1w58aDhsvmk1+Lx5lPcjXR2x3Wai+8Xr5m4NebaNTyadmdNUjWiDinIILhurVI9tyzJhJRf+63/wmTHF6XLBd9cxeV7kfxJST82xlAX7vdeaiA6s3UAMq6qyKCOBXV2gYrA1Cl0Y4EXUbqd+lV88Y0XM+fB59mlJOwd1AvKUIgcpf
+Py/VLiRn+NeANr166sbv0eJd1qBAytAacqBEMQfXiVzSc74DqNStTXQYADx1XLpdlb+XGVfop3Kdg76BePc+XLgXSfOFqo/B6bxks1wbQqRvaaG4ADWvAXC4JcSIqzjijVafbfFq12iXrPjQ7Iu0DD+u8KI0xpqrWsuq8dj4B/EMBOP6fn9Yy84ph1Pxc8AD3XghGC0iD2m44NSQBRAWDYJLqueHjfF1kQJa3qCkF+KsqW9VFXdvx4uXh4535EezXRWTB0gVI1t/8u08V0C0BapfBt37UCvJaCxwGBJw4VWtvPKr6x1N3vVh3X8vmu3UwhLWzexuztmW1nvyi3G4ecz6feclsijoF7MzvL1VN6Hjhq7cBpM+X6+YaV/VExXsAAibozfvL0N+lyst51QgJmwyH8Dp+5yKryVeL/nk2OQq7XZts1RIGc1sbIMbjNnkYMlkbIHQpMIiq3FhjkjA2kRhUUEVFBSiS4TTUfblmq6gHy16urY2VXLmw8FIpXC/P434Pe4efBnb1Z7PnmU1JgKQz9YJBU/qdXEGL1AIFgyjNh3FRFX1AEDVqREWwEq7XX5yaLeYvJDcpMJu2Flm3c2HTNEzmoYKGX/PwHO53sPd2QTSoBsvmHXOTh8CDF3xazC4oZgYI6xT4PlRZd8f9NOmKCCpqPLFFJLR1uCyGcd+Faoz5Qu/HXQSQ3U0b0t/1QoAw9OJUZ8Pv/X8A+3Dv2rfrFre/08CtQgWMS20YrNVWt/b7gIfLoNSOvRAUFWfUOy1NAlvCMJkF0axXdeP5HzYJGhmePniRUAUbzZ/a7tQAs/tV+GnY7yVOsn7TRtwsv750II09m5iZS5/qrxJ2wwHUXY0CBUQQRY0gTtRgvB0t2o9MYoqLcFcV/nDGg7jeefPvniqw1DMh/X3Yx+Skrb429NZlXnUg0Nyzt30eTYdxClBIKA4xKqIgBkRQQ+MBG3GiGMmjfd+1XHvFX/V3zSxmhs2eOQ7bHEW9Kz
+eXkm20QbQogMueBWuveyNaB9wlTo1RZ1QRVS9HREUUJwhORFBNnrOjvz7ce3fdbKxPKnfdBg++bx5//Lb7XOE0CeA5VXMTR1uJOydUUcWgIgiPYeGaT0UaAS6CmkA6u7+ednJv2OwJ70XpubDesa3kJOwt6nH+daJ+Q6xeoxqotZG74TQJGJh+EO8sdxbaEG0hQt7tiAu8zS3OiEM87V0Y/z3YhVFczgCdzi62d/vrduGXYtVPTxmE5hhqWz/M0ynA+qetgfrya6N4avs0htjuEc2GqUNEUIwgsMZh1Kt4UQAxnlWKzt6vdWY1gHXr1iyfr/9obZLe8OS+e2+TeHVrn/ovy2z9aAFbBxfRzUZhSvbehfIhGmmccBaUoA7A+eQTCiriDsPdF97NsOOn9XT8kK9eXsYt6tL8A5skf/E31lmxZG4BG8W3EDpbGKC+mI8Ob1J3PZlV1CCYqhMUJihCUfEGrH8mQURV94VJNHOhgppF7daLqt5Q1dZRetLB3MBuvl38iNrrTGh9PGFxB5Cm3amxybA3eBehuhAMiKqIA6UygVOrBnHQcLY4UFVTcZDyu0jfWnvFmB2b5W55e9oxPliI7GmHlHUN2OtF+1bwpf6yiHfu0txmlaOgKsZh8twoULBOq9yZhq3VOSNqjCFxh1ZpdHNdvzMDbVl+a6nyunrH3mb/nVE/L/fvcUdvK6+u7OgdaBCcwSE4UWy9kiaSaUD1URWHMQLiQ0D5YcSyE3YPgNu632/oM1lcTpPxCd7ePEcaTsPYm4+t5VfKj5Yvon3Q2vhYXcQZwYnkP6/WElZv/ZUpk9pFeZmj1mjzfYMzQaeVgds171ib9qehMUatMVW31+mmPtg4HX7PWebuQNEH74TLiOzrfB5tXA5rX3sP386EX3p9AeMMjaxDvS/E8wCi0WPYrIf3FFQ3MlBk+7s9EHeDA8xi2Opn/cHK1tRR7yCobC93UM+fBt7MTtN6S3E1ug4We5J/T/RPg
+lBUVIW8SuZvqQSVxqrTi6pD9dafJVGT7hDEAeE6aZ9970aDvrVBEATWEzp1P5ZRw8Q6lXiPXrsCsEzeOvU09T51NZzqhvHNelV1TinaUENAjD6K6iXTvF8FoXP5291DSBC/5kGIigj43PBGBsppp2u5KOZzu/UrwkXDJjuwmw8n3Sf7Ni+jsGG3JFlsKG5Sk75D3TqcXS+w8+DKuJAbp0i4kqsoxBCEA2eDxvD2qPdloLwHnqVvr0W0J+Q0tHvcbbYsMnuqaxtt+Tzu3vTbEF/U8pu8+5msh1NwjpgZucXAmslk9UpCEo3n80QRaQPHAvG+DDy44fJVv5d2353HMiyP525eqYEy2LE2OoiOoxrK9eikyT4sUjU+UEmRIKwtIaNXepMEWV1KKoL6NA4qDmdI9zaY7DjdnYtn7EFs0JbU97M62oPdXLEcLADb3Vf2HSR6iMqbzmnzIFo749V3kcYwvu9V6ap8vhW0SFz9iu03FQ8oPvOXaHZgILQy5WvwdKB5akg78Y8wPJ4py58t2GgP9WQ+osNNWB9NsjS/lHdFjSKSpKvVJZPSQZIPiuTx2lY/RjDOUzA4o8aBcSiFPVQ5De7iMdoj84jc/LiCw3xgy/fjoQXK7r5n2S2BTnguNZRNUVFEnTyEPDJcu/hhZmxeaJrEjKeLi4kK+PoSMX43nVq9Xni3URf1bX+UZU57R5x0O2iJbYBufw9RyVunCs4HEsMkFJ87eF3PQes6+MFdGHRCZ2Vyl8ahCX72wXkfTVUQCbSMjt+yX00NWFPdLq+S/Ic162lZU0QHe7iBnd3lCjaOdz+OF5h8GkRn40M/k1AbZ/1mMKW8S8Ppta6/Vz/vrPit9/3KijOioMaHqaSaHUZB2j8eCE1SxNWwHz5c54oao7NVPY4fBztflX95YscPQH23B3s9rsFen6ot89yY1ymgKnk5/OuPzJsHh4w06BqcASeooCIqf48O79rslYdO4NlimT7VO8IEY+qN
+PGtYoM7su6RE9mcNlOvwHGoUnFd3MV8PEWf+GUaT7/eKMxjFKAKy6pzKXG/s1dnWLqK22PKPyWS4b7gWR6zvqwywvc7ZiG0WJmpEFXhtUpNZ1Xptf//rX1IDdHRRGIN6J1kVPVKLtP8A2exAetf2Yb446iZEy51/zDsWKD/IWV2L4BwGEBYA+b/CftYs1/yvUTCBLBmtcW2aV41xouH8LO6ltqnPHUs82vjPe7Dr4eNWZr88AfSW59MRr7mPguCSmuEEqrScDw1kAOvrjD4YCBHEqPNGiME0S3OijeEhbaMw9bcv9Sa8NG/9+0aSrLybvPxa+bqDLJr4+EgbnTsFO1TrQzciQRVKgLPT6SA11WLZG/x9Fw4eL8BG2XVAoyqbGHcYvqXv7tz+/VjlbQA5HBiXBI0ZrZ1mozWw119mPsr3dj0pdRHMllYBm74OTqBuqLTWUARRNa6u4yAbmJerweMFT3/2J+lFVv/8AybTQUUAahREmuhg3rL3+3s/3G9QX95AmjxfLtQ0UXV/jReAk8uNsLGUtHu4vupxFnYm9+IMiuDMqhyWIWSMyPpDytaM+H7Pa18NzvsJBhRxMpu9k4HtXbUBUIf37SePayzUMtplknSyMtsildY8r8MPWAR3g/gaXBWpiO0kZTAAd1WVcd5I19fB5ELEifiAm6j3xzSJTnDJoPNmAOrbbVyqPzVOjd75e5rmomj0XiJZc/9R8UGY47zlKepSu2ydZMMaUm9WT0a43IFDDKBOMKKtH380Ol2PfDAs2fVx/7y6r3nZF4C9/O4Qd139uUMDj/kQeIEaVdeUkCCt5OmRJmTz1ru1iVEfoDcYVFTVSNLJTi4iYKP+t0M765abA7md/n23J95t+nUP9fEcfolgMGAQSN2YlwzgYb1ev+io/huyiGUozofsvdHtvGdZnNRknczW1WL4PrXRbxNJG9b6s+BbK9qtrSuJjqFu/27euEQ8EFSNI73MRgHAKAiCId+DPzN
+CeMP5/Ko4RIyIqigu6ZwU3ffl7Z+jI88zjDYu8CZkMlj333zN0q2Ed7sur55QZ9lqqL4uyolinOTdsP/3BWTTQdZd/DFxN5kOsrsQcaKIl5UoBkFlXZ3KKlVpek43y174M0KuV/1Z2iHcw3hSwfcuvBxx4sM7pKsy+vNlyFXvQcLRX39AeM9dEYNxRv0OEJU8QdRsdPR7eyr+RPJ656JB2LGd8ICyuvHRugfUrkNR9QFscYqgQVmFz3Ua/qV37u8/IfuT7CIUH54XUeVxJfIaamlFo6e3wadqjA6+Iz68c/oq2UW9xO3HhpgRGBFVA4oRFTWBfbtLl9HF29AMgLpDWlrT1KqJCsF1HPTDmY1Agn7wHtKHuKWVJCKnv9mi/hlQuoPPSx/B9qhxKKrFYkL3e2N5T67JTIL3NUUQdML6f6bemdTWYP5UW6iPbHmsbTBNTpB6izqZomW7ps27QYyvCvBeGaIiYdBZRv3VPAWy9YB4HRjxFXaiiM5dZ2BspYEgQXTGnmp2vZt3t5+00aXg1M6TfTr8TKbYy+6BjyD3rZMo4uOnAnEh5dOoky/nvZsOaIITRMQZFfQ780sWUd5HBVm5o2u8RTLXYPl0x+HWNXvUlcO/dlFTTg9/4CvO38wgqgI4hThd30xIruSqA6xzFcX/D+iNIBtmPZ/Haa1APbLOANkLU6pNElZPJEHEvw6Taj+TqU8r76/itWCarYYTVaXxz2LXn3g3MsMl4pdCUFWBa+7pFapOEQmXZ0u1uligSA9xny06OkDNYS7C5t5QoWFucT4fppIWnp+mA+JGkWobJy2AVSIqSOPOvSN3+6/V0DZZ1+zztVIb1J47bO9Q3c59Jb9nRxUjKMYXCLCEyfy1P+W1WUQjonmeG2DBde6Dr+YwC78vqJK2Fnma7jfomo9RT9oQ7Tu3skwaznLqEFR95klQl4YTbHfAHZq7ptKZMgyCGjCMwag4gwxvTwIowm2gpEg/Se0ded2AvD
+n8rIuqiPckC1k81eoD3WCgyxp4pE4F9LFcP72lURwPAUec+Cyx09aC1vc+ziLbsUmLn7uffVh1Oclbb1mL/gG1VzGoEZzoOphd9m1RRc6oGsSFVVgkMPhr9BiN5668Dvr58jWYSSBBYAsNnRgE2SbODhEM3GqXqPWuIfBRS0W2sziHRtlk0QdRUXnsDlm86nCZtNJQCCfDv66XZsQ3UrLOq5uPgKTC8PTn8DUxvrdL8iOBHk+z7nRt9wy9rfD+qFh0vW1R0q+HuZtL1CDO5OsvPN4kRQJWEFF4NMvF4CLspEwmAX+P0iQdQOZUAru6JotjaYJUQXSygbW/rHbo7eqtRj1fvsjTevte97B2aR00+j/s5GGVsErDZazfWVs3v4s7g8zZhfm7/CMwAyALx9HyaxRAmNkwtG1JEvaIgm9xx8PZDqje5nvBedQ7Rde2/87ozVNU1DiKeDKc9ofLjhaFXgLLYhUWeknodU7vonL/osuIrEf82pcwdQZ8dqFwp7gEksVOLG0n2nm26vLnelfmBIfxgbcg8JEGbOGSH3U6T9MwDaelfRvaJEwHPrU9s3JlghAmtVtGi5sgsEngk8AGwQTb9Op7c+qJbSK92HLJud6ErLfbe2dMclgdEStgUEzo9GrSTx/7Wd1PkyaHmXXLev7VJjYF5jNJazU2DSQIRTDivE2n4hZHzMDmH5suCADptt8LzhA7nZ53lCa3Ij7UJA7Ht3WQwHzon3h5W/2LkCS7NtGrDInESeJrqXz5q2lSokKToj/wzRpGSf5nG+Z259TNhrGLw5jIwauLqBNFjZrULSkYzkddsur7Sq7+jDpMxtMXTWMZzgoimeSCNArTiKhzHpxLlmcUPF/ujrx5Wm7/3G9Rt3cvhw8W5qmggs/HVPTWQcJ1JuE9nWzo0tmQpsRvxPSiM56SeIqKNhVUogqG8Pqoa9VkWRL7vvPCnCJ2luzXpUTl4b2zIkHV+LouEjthygOMRlkGw24/2
+A3P9BeM7t8ecyNog0dQJ4jgeDsZVoPhxiba6VEyn2Jse2cW8bvtPgcxilOjgpJz/f0G5o/9+wd664OF77xkfOvWKy+sDShOjAJqkjo74/MudzPCcNYm+bmbma/r5R+Dd56euxZRNU1lvASdt7QfTtYmtmGAtcnDfi1Y+ubSNJ7FNHEevOxERQjfe/A7CbuvrSwxvX3P/SyL2G8D+XbMPxVQ44OC4lSKxcM879s0STVdl8R3ByQczZZw7cvBXHOVj8JKUpzhEnNk7sYJw3WHRery+2B0DHXsczZGVAyoi+8HUkuMYFy6LolvDnG/AZNHGltXvd+sqNI5I0vmR8Cao8T+uRV2da9/fzwW4MCziMFhxBjiJFFUcYZkXdKR/dq5v+8hC4biVAQc4kSc73Upbs9Zoc1/L/Lz1N6yiP12vROv3We9aeMh4kPXDoz4TIQ4R7LOGS12iTj7E7LBRepvo4IYrz+MCue4hGafFaMTW7KttVhtJEjRGbyLAmxdMlUj+NiNNF6Zr4gSNcG6Cgc7ZebrDkziIHU+9YSoqnGmmb8SnjYDB29t7GxrAR4rO8+qDVu/JKeDXP1cfYWiM+pLF0VUnTojqkb1rcNyOwjhJYLlIkzbXzSCGBXXyPBi9SGPUHJWAOau1TE3gzOhudpFfq19cJumL8H4EtwZV6w2UeosGkARhqmKijiDODVI0zAs7pyz4O58b058z1FqtxVqVcsh/c4pBgEYJ84DdYiIcyKoOnGosiq1k603S5VLB8aVpOoLpRH1ZgGOZiJCNDmXyNmBJye2ZL0xQobHSb3x242qOId4NY0ixviK6PB5mHWDjc+ZjqBMEkGMGsG4TbzOqPpCq9ydgh16RPGX43J7X/jZu/X1GVK3oVuM0Py/D6cBPK6i0VKHG9Q9yKbrxEsQ5xSj4kSbJJ/gUD2WyGl0SPb+g+CUJXBXfNQ8H6IGnPExQAPOOOMMq0m3x7y7kVbJFTCwKapgpCks9W3Osklp
+E0+GxxPN/j/xzS4ac4LY394+Qp0VYqDhUTFtVtqp0SEPL/uUyWyi+GSxTxp7jjZixFfRwOqELBmOoh1H8hS1pUmlXn6YlJj3W3PIqKgBVRGV2WzEw276OHy8Z1TmsRrUOMH5kIRvClDBeLInh/mnho4VNdBWVcoBb+8R2/L9Q9T+QzH4/kLfRKaGeATJfhT8ZUIUisGJGmgKGT2LoMarSZXouF3iMuCiPG9KeZh33dEnUOOTjF7H4ESNKho9ZhwYI8PLMdHTSnENXIe2lqtphBDuIDzVVoMOIyA/wNOqG901s+tw8DGx3XXT0+SM32k+hiYaBKvhc70feUtXYV+NmCb5bVTENf5ZY/9iqs5RjfM3ENwefGKOENu2UdCzxJ7jq7V8NREYp97+T8NFNlocaI/0gbjKtamDUcD4p24C+QpJnL0n9jiIIL47b29PCoC74DMs0tvmARR1TkVUFAzpULJ94w+4z4nfctPoJp8QkTZS4hOtK/vePFpkNRerd1Tcb6mYOqDuXn6GsfOkyWipiBM//8VvS4Iw+DlyP/edsuCl06cIfIk6okacwfkhVOIUo3UYH6bKgpsF2Lt3ePao7U2/0Xc+84pRVXyPoe8ka1xbhSQcMLw5uOBqTmTzFpVRFXXGm9zOIOwUmGyGOHaeIBpy3imLAOq/PydFnC/6NA71AsXHTx1GRVKb03k5uOIlI6lX6hsovZDHy3HjO6EOfZzl4qkm+nJko5ndp7MAo+6nUIMaREBMY6qCA9eUzKV1uR2W0fqSmvFmCnCNayPqi56cenV7kBCZPHMC9R61lwVQL4d88uUjeOJTpSpORLUxM9Wl64dmxN4O7i6j53XRTC9p+1eMmgbHQbxEsSdQ78Ge7X7+IbFDBKc4VVEfFPO12U341yWDOelBGGy4YqSTdi6PIg6H8xY4iA53S8z/GlqC46g97MbUsnxQirs/96/R7jRdQE1HJHgkRhOZExzgTjKG3UfV7+oUnO/sMWJ
+8ELaoh7s1AhnB3QkFsuOUuRyotH+C2Hpwg8h4O844FIMaEW2axAXJQ3LSt9S8JUA2dc8u1IW6K0hrt4rKlyCPfbWK5xc1IoGGuwmuq+r2lNrbsQC9L5Z8QOkNxdehV8qIV9Tbbg9xxeSiYDpcrIZczqeXY+Hqis3oqTn0GPEQJvj+YVXjDKymu4bj04gvJ5V1sO+z2XT4Cf5o8snijBMaj9ZHIUUcitjuBaQkF0CvR4fJ0hVQXgf1oiM6yi6pguugtQ7UqKjoZO9HRucKY4Ita6cVlJ1Pbki4zmNxxhmHYNS4RqYYp6Kr4bhL6ebX6+nX73ePMGpTBsEARhmT+W2wDgyuUT3ijCu+xAcJp9NYdqgdF/yTaYzjgfgiOhX1kxuazgr/WzExA5I+fwBM+pQTe61j0jnIiCuYJPjwAyoYivq4wjhKwUPvZtL7JI/gbQljWqNIWsktmsdEFU/Xa+YXppj7KuCwC3xr0gsZjEavfQGct8CIZ+/zeyfX/QB27+r4d+U97huriOKM9292e8Z57fTgT1IuoDMkgx6xC8fE/TFd3kbdYZaNVqHvRkNUWL192+KUj45d2If9PmV6JOvXbFq3Tp34MJq32FRFnNHG8s/szWKY2RvH5LI/p280rwawvgB6mQ5HK4Y1ouAMaF5/29W98sEYzGA/E1aGH8EeVavn0Y6ualuTFTFtUWWSZKPukD7XuoYLF96DSuLFnCIlwKqzSFBQ4zAkxQFPylmpsIU9ej7vNbZ/PSqP1agxmlDEODHOl9t6eeYkv6YPStFvYmb4eg2jgjg6wzWU9Cp8rRKam8673XQOt9kyUH1uhtn2JqM+X/V1Qiedrh+RJizsfdqmPFsIGuVl2lECxklTMuUkH6OTSZ8fdfGjfHqtpkUhuhNZPScGjm/J6Fg+9sDlGDIZwUI6Q3QV6PirNN35iorxTTHj+zyhDOd9WZFq4wqZh96ca9ZJSnTlFUrKtya9nI1G72N1p4n4781zTZ
+Zgv57bwZse0v50BJMg6ADZtZV80XUYN6fX8w0IP+75q5N/o6yFSeQraMb73WZZL3bhPHTzYcPWfZl3dM9s/hRsZlOs+/YZ3Cx9N89kmS5HhxH0HjAfHQ+w92LsvOyG47vZnNHRr1zny9GHuP1RJroJkoS3fAo3E1t5wkz6q2hRpDDvzfdMCbIeHRlfvnLpohnMOQr0CPT76fUHuHdhZwa4iT+JG+au2l3SbJQ1tAb6zE6Q/ID8ffn+VSmjMipjheay7/efh81TBRevo0/jhonrrOafo+EOI/X6Mp9fLAbjo/TP6G2e+DzsltyXU7YexYmLdqZ2+ntnwyjvKI/A6LCj2q8AvT4yN5FR6uLoIhxvDz2New+2DwF+iT64qJ3AsuqUkz1WjilCU4Sm6Iyv55SRiZ0pmPfmnELaYwhMqzm9eU+Gn0W9OV1oh0126X2O4JMIJte2XH+aSxqTqqA76YbFHIa8fYMmHJ79i1+F7eeXBuXo7JUNS92LaA7xPH7l+pkLzHh3V7bp8uuCeNWddEOKOV+RNgqRQF57P23aByZXn4cdHNgcq7SAKt3Jo5w8bqwHSOqE0F2wHgDxt0qAPnz3amsBXyWP0KS+wNEPEUjEeW/ZaPzoYV9MX0d8nrN3j6BqY5xpwQGjnMjwZXIvzo8LAA/lhBXWJtkVUTU0nYpo/rYp+FiGQSajz6J+74SNVjFA9bwXoD46r9lPkmtqzRrzXgQf5VHxnR/eglLng30+0uac+g7iba9bJ1xcHuYTz5iAOwd+bSyO2FctBnenTMGWoSKf2dN2YqGPE3vX0htfouIb3GmXxH9HBZVHPS3yPhiBHrw3qUc8Sg1Us2U5Oie315FRUZpwsWcB8ek7NQo6B+iJA+P8cEBwPhguIN3hJ+zk46/dUoHNV/ukOVC4wev6TEvaiw19eMb48yiMGmlmpAnzckypzlV1JCKCaVpFVIx311sp8g8BH7G3N5uqh12WNUypas1PieVh6EPxz
+kETsfSp0TlKaQZTLCXDpev7RWjiKKhRZWc7nkCtZ55ivzBj+53g2SSqQF0PXlflUZr/CAJ8+mLTdbkoyzFlqeHc1VWl9W0wqCAWHA3rN9HOIrw8mtGXI6aPfOjdbIXYCHI7poYpJM+1CYbHIvPOb0JmwKxHiRkwxVY13K7ml+v5Iu3jRIxPlajv+HNFuNNEKo10fDeM6LRb+f7owL0B+Kvu46Yy9qKoTbCryCemjYv3KDHETH2/OT0bS82rpH0/dM9hcNt2QNkGKeVzwST5EPbBRXOXzuYRW+zUjbR3iB/eFcPUp1BK6A1+6CVW8un9JlKFGhWHcQYn4sxquxvlkyEw+RD2u+uyobPF3PvHh769pa1h6vVlmWiNldz1xCepxflYalMH2wyV/AXUh98MzgdFNiHb7uJWlbWNZsx7bUVhD/osuELHl1CE60hf7qGL79YTHIrzCTFREZxR1eKTqDM7HNtB56gbf7zG9VhZWxCEYRzZNJ1+fb7pdDodu46TYCUyr8swT1+CriG2/TYt4gdftjVfvtZFjROh+BTqTIK8Mutl8HQs/3/8NM9PHrowHix65EkOJL7zUE278x3NARvN4N8mMoWUz6NPoJ6X83aAWHIk5h58yu868SqKHhKTOs/I0th52grnJqHu7RbfXKqLt8+gLl8280nKJtC8xybnupyWWnRfBq/XpxMKgZrGVlLjRJyhic6reKnn5zI1NpYiq/Di4hOoH9fbCvk6ij4Oy+9cXD5HNZSl6CngdWDUl2mhGCe+PA1VjFMxDie+Msdb2ILa6DN8XfqmrAZ6Pe8kH9rbW2Xy3U+eteXir1O8/ah+5obsGKQiYowTI36yERtzFl09JedcvRZ18d1Pj42a6TX2x7uSutOdIJu1qa3bVOzvGxCja3ylVDNQualJbEPeTp0xTlV8fkc1+HYS9Y4XMnny02P7V/KlYZUvH1K7vTwrdjoBHrub5tC9buF1s+9Efbmqw/lmYBWDMWIc
+Rny5hvBYxqdQ73lOGgE2uhoySi9qgKj+CPbm+t58qwaxZfdoq3HSumReu4jBx7F9R1Dr4CiKrGbdzgnU++7eoqy9zb8tA3jf8mNOib55u4/9SQ7zo4eNPaPN6CI/LlfVV8F798u5ptIOI6t6NjyFen9L+T7p+vERYHRvt89wErYexBOwF1fihx/PjsG+BHAq6r1xJ2DEOaMqOCeiqr7Fb2UvRpwyS/d9j8CPpbHrbVVHWZ13E3aV+aoCTDcc2E6udffrMVrNX/qiGPVZaz8avBlB4Uzr0IjkVpJT5sOOaqtWq9fXQf/RD4U38+XrNH4CUHtYSh8cefCxGQLG1k0iPozm9+HR1MQwwWEcxuFHhLdfEQzaWn8rMxueSnBsUM9jXQC91fOoLKMasNLlhwVqMzxH7VaG+GLil7UBlRRQMzk8iqb51Wcb+Xr9Zp65wbCZyu7r6zS3z3cfRgeD7k+LMaaa956vmmZDrSoD1Nc379b5CJMEL8swhFcMUNgIwuce8/TYIpc9oUl9qj/DTsUZQX3XgajkP/vJ4CPUS/O2aOSJ0fT5erbpubaVXh45Z+M97OKnn/E1qCtA4xgYuOdyVh/xg12o0kZt2pI+47zqNCDkdX71cSR2V7pqYS7ao0fsvembyyOb6t1I/Iwa1fJ54Kt5wiQClmNrglXw/E4QPc0vaJoipGmPoG1pURV0MTwk9WQ5PnyrpgZsMz3MOJcmwcKfuRR3U87DbjTIxIAWLGf+Qj+vslTUrNfTwx8cuMg7WsbHboxok41WEfLikNTL52S87h5kfPMJQH1ZXCz8ORJhQuSPTDGrzYkBp7ybZs7KsjJgwrXz09qLASx/AFB9uQayPegTG/hEqyyWQSE/o9yfHCgqqi83LakmuRZVWExfXUlYHoSjpjVQm5t+pE4BDVKw/jQdMz969M173u5HcwObeW/dlHYGo64G8FjraofJZ0no461PHY1X66Gb2knPM/r6yY8BK9az1bxcrpa
+hmVij6J0FJlKIK+cpFBMD6HUIP9MKoHApPKeqQLhujd3zsAn9iVK0PlFL7Dr8A1hTrYLtNH6bqFFMPr7+qfOqWpTrS1fGRnJX+YbxYjpZUhpjTJhf1hXAdDpYMl6Xq1VhNeSnPzrMpjAIcwU0TmHgcWs4d+lZ2O37YTxvm8ttWQ4aYtv0FhgvULOeduzEn3zxfd4H0VVQ1s0gy+mwivPV/MorqMcpjdWN+WICj+pm+la2hxymNJzh+sB8vYHNIF/5I3tW08FZAbgZQ2bxUxpt+fVqw9lXFvBdmmHHBrNO+fN1MIiWZQxv67xdoa50H2XRjIkb53Y7JM6la38ESO+lfVe16Dh/2E+cAqtKga7fyGk4CxVMGqefUDdAlKZ1oarpVcSG2D2g8DmGStK/bV6sib6nZVSVhKFTwJoqtEm9+Nps26y1lG2lGq4GpT8SZpBvn+XKFit/Tgw/B+O5lykND4bhLNT23IYzvL1Tjp5aMyyKq60YcX2aHkls7/LBGVUTXtav61Wvt9ZkpUBykaZxHGxkjV35QchV/6LbnX99uPHM/borRgaRP+7B1OlqEenOgE0Iw5mmi9GHW3Lno6gT9AeA9aTp3gKlr1SuyoFnSDOpjQl79nHlyXT9LK+7knrs41vVXTcIggs7wK39/ATqbjss1EapHxGplW9sqXpbHyysLqbHAhTBO4PyMLTz6s8a6QOZ+pHAX1LSpXczAZ6Tpsk4GlezPS9fm7kouhsy9HzwJtfjGogCovtx46N7R2q3pu+6nZRwun77XBKifhxnRTdqnZpstnXvyqv2vM66ttF6X2s3rveq8UVd4yT1LkajdXMeJXzfnvhjo7vrT4Quj2zJA9xeaBHmLDyM+ss1i0Zw2ErDetlZbJ7e9HbXr+ElTJn6yYOhZ257adu/tX4eDNJ6FSpYU3XnV0dhyMfezX5UwR9GhppGb9p6NSCoFKDuBteB/Sp9f5iWNaaM96aY/LzNm9NVpv4c4Ia5Ox
+YonALFTQiJTftd1+ks7waHJv1RFgg+yD1CJ1zvOfzlbQIrT/fwEqKXq4jeCqD84njZqzYdZV8fm+N0x2X3Gmxpd6xsgKhqPdfdGfJ7tZfvGfekL7kNhvQtRWiMqXzVrV7DxKv/7i3AACZUgL2No2iwT6uBlVV7DFRuI8qln+X6PIDX2gBG0lOcLHJk9c/D3lM+Nu11OsMFQH0bgKwVqDttvMYsFDBdc0QgxWHkWV9DngcNcxc3IQw6C0CLd+bwzqBFEZGP8pInswo9IFOiGlsnWzkWHPzM8miCtIP94cdLz6+g76M3BmBha7Dvz+j5OKN6vl579/pRP4xqW4ZA9lgD9Mb7gq48FU5NrppPHPiS1OjZx66p6+iyPicRfgX23u8P7xe3Ua/aENtu6/Xc/re3O7pxEptqichtTgTu+E9vw/7VxWh/S30mj/ERb8t+/ibN74CkVKDqbJwrH2rT5TsDc7YqJnG9CLyfUQUdvuMNJ5fCYDrcnqAmp/j4V2AfrnfjWYZqVKt2K2WlAWy63sJuB03PqvV87nyg2qbXfh9aU/WiiM04x8+XCHySSY4vW3olV9Xt/Y7hsM0EvvPJrbUNan90x6quo8HVovcrhQ2fkyTHtE/D5/y5k44yXh+9n85DtdUutuzG3jbQzm4Z2K+g/hzso5bhDm2fXQSU66PCr8Yn4i+bww6Hn8uD/mdgHwXevq5e9XJ8N1tevpf5YcS8R1+qVfeTu+dzYP79j76un2OpT6dkfwXyP6P25mf0P4XkVzH/c9iHG1T0Y8vgP47512BviC7HwMlnHvl/h/mXYe/gO9239p7cwn8C8v8O9lGhLqdlz38Ebvv6fwMA7lFleHwwRvAAAAAASUVORK5CYII=</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <PageWidth>21cm</PageWidth>
+  <DataSets>
+    <DataSet Name="CLIDataSet_T_CommandeVente_Ligne">
+      <Fields>
+        <Field Name="ID_T_CommandeVente_Ligne">
+          <DataField>ID_T_CommandeVente_Ligne</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="ID_T_CommandeVente">
+          <DataField>ID_T_CommandeVente</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="ID_t_article_version">
+          <DataField>ID_t_article_version</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="Qte">
+          <DataField>Qte</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="prix_vente_initial_TTC">
+          <DataField>prix_vente_initial_TTC</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="prix_vente_remise_TTC">
+          <DataField>prix_vente_remise_TTC</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="remise">
+          <DataField>remise</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="prix_fournisseur">
+          <DataField>prix_fournisseur</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Code_tva">
+          <DataField>Code_tva</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="description_panier">
+          <DataField>description_panier</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ID_EtatCommandeVenteLigne">
+          <DataField>ID_EtatCommandeVenteLigne</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="prix_total_TTC">
+          <DataField>prix_total_TTC</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="poids">
+          <DataField>poids</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>CLIConnectionString</DataSourceName>
+        <CommandText>SELECT    *
+FROM         dbo.T_CommandeVente_Ligne</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>CLIDataSet</rd:DataSetName>
+        <rd:TableName>T_CommandeVente_Ligne</rd:TableName>
+        <rd:TableAdapterName>T_CommandeVente_LigneTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="CLIDataSet_T_CommandeVente">
+      <Fields>
+        <Field Name="ID_T_CommandeVente">
+          <DataField>ID_T_CommandeVente</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="ID_T_Client">
+          <DataField>ID_T_Client</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="Société">
+          <DataField>Société</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Nom">
+          <DataField>Nom</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Prénom">
+          <DataField>Prénom</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ID_EtatCommandeVente">
+          <DataField>ID_EtatCommandeVente</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="AdresseL1">
+          <DataField>AdresseL1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AdresseL2">
+          <DataField>AdresseL2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AdresseL3">
+          <DataField>AdresseL3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CodePostal">
+          <DataField>CodePostal</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Ville">
+          <DataField>Ville</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Pays">
+          <DataField>Pays</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Tel">
+          <DataField>Tel</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Fax">
+          <DataField>Fax</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Mobile">
+          <DataField>Mobile</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CreePar">
+          <DataField>CreePar</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CreeLe">
+          <DataField>CreeLe</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ModifiePar">
+          <DataField>ModifiePar</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ModifieLe">
+          <DataField>ModifieLe</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="FactureLe">
+          <DataField>FactureLe</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ExpedieLe">
+          <DataField>ExpedieLe</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Web_on">
+          <DataField>Web_on</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="ExpeditionNumsuivi">
+          <DataField>ExpeditionNumsuivi</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Id_T_Transporteur">
+          <DataField>Id_T_Transporteur</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="Total_HT">
+          <DataField>Total_HT</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Total_TTC">
+          <DataField>Total_TTC</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Total_55">
+          <DataField>Total_55</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="Total_196">
+          <DataField>Total_196</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="ModeReglement">
+          <DataField>ModeReglement</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MontantPaiementTTC">
+          <DataField>MontantPaiementTTC</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MontantRenduTTC">
+          <DataField>MontantRenduTTC</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="AvoirUtiliseNo">
+          <DataField>AvoirUtiliseNo</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="AvoirUtiliseMontant">
+          <DataField>AvoirUtiliseMontant</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="MontantARendreTTC">
+          <DataField>MontantARendreTTC</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="PayeLe">
+          <DataField>PayeLe</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AvoirCreeNo">
+          <DataField>AvoirCreeNo</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="RenduLe">
+          <DataField>RenduLe</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="TicketLe">
+          <DataField>TicketLe</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="tva_on">
+          <DataField>tva_on</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Commentaires_facture">
+          <DataField>Commentaires_facture</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="export">
+          <DataField>export</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="montant_deduire">
+          <DataField>montant_deduire</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>CLIConnectionString</DataSourceName>
+        <CommandText>SELECT * FROM dbo.T_CommandeVente WHERE (ID_T_CommandeVente = @ID_T_CommandeVente)</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>CLIDataSet</rd:DataSetName>
+        <rd:TableName>T_CommandeVente</rd:TableName>
+        <rd:TableAdapterName>T_CommandeVenteTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterFillMethod>FillbyID_T_CommandeVente</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetDatabyID_T_CommandeVente</rd:TableAdapterGetDataMethod>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Width>16cm</Width>
+  <Body>
+    <ColumnSpacing>1cm</ColumnSpacing>
+    <ReportItems>
+      <Textbox Name="textbox25">
+        <rd:DefaultName>textbox25</rd:DefaultName>
+        <Visibility>
+          <Hidden>=not First(Fields!export.Value, "CLIDataSet_T_CommandeVente")</Hidden>
+        </Visibility>
+        <Top>13.5cm</Top>
+        <Width>2cm</Width>
+        <Style>
+          <Color>DarkRed</Color>
+          <FontSize>14pt</FontSize>
+          <FontWeight>700</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>41</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>11.75cm</Left>
+        <Height>0.75cm</Height>
+        <Value>Export</Value>
+      </Textbox>
+      <Textbox Name="Commentaires_facture">
+        <rd:DefaultName>Commentaires_facture</rd:DefaultName>
+        <CanShrink>true</CanShrink>
+        <Top>15.25cm</Top>
+        <Width>15.25cm</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>40</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Value>=First(Fields!Commentaires_facture.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="AvoirCreeNo">
+        <rd:DefaultName>AvoirCreeNo</rd:DefaultName>
+        <Top>14.5cm</Top>
+        <Width>4.5cm</Width>
+        <Style>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>39</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.5cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!AvoirCreeNo.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="textbox14">
+        <Top>12.75cm</Top>
+        <Width>4cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>38</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>Montant avoir utilisé : </Value>
+      </Textbox>
+      <Textbox Name="AvoirUtiliseNo">
+        <rd:DefaultName>AvoirUtiliseNo</rd:DefaultName>
+        <Top>12cm</Top>
+        <Width>4.5cm</Width>
+        <Style>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>37</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.5cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!AvoirUtiliseNo.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="textbox4">
+        <rd:DefaultName>textbox4</rd:DefaultName>
+        <Top>6.5cm</Top>
+        <Width>8.75cm</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>36</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.25cm</Height>
+        <Value>="N° de client : "  &amp; First(Fields!ID_T_Client.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="textbox31">
+        <rd:DefaultName>textbox31</rd:DefaultName>
+        <Top>2.5cm</Top>
+        <Width>6.5cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>35</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.75cm</Left>
+        <Height>0.5cm</Height>
+        <Value>Adresse de facturation et livraison</Value>
+      </Textbox>
+      <Textbox Name="textbox30">
+        <rd:DefaultName>textbox30</rd:DefaultName>
+        <Top>0.5cm</Top>
+        <Width>10.75cm</Width>
+        <Style>
+          <BackgroundColor>White</BackgroundColor>
+          <BorderStyle>
+            <Default>Solid</Default>
+          </BorderStyle>
+          <FontSize>26pt</FontSize>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>34</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.5cm</Left>
+        <Height>1.25cm</Height>
+        <Value>Facture</Value>
+      </Textbox>
+      <Textbox Name="PayeLe">
+        <rd:DefaultName>PayeLe</rd:DefaultName>
+        <Top>9.75cm</Top>
+        <Width>4.5cm</Width>
+        <Style>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>33</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.5cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!PayeLe.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="MontantRenduTTC">
+        <rd:DefaultName>MontantRenduTTC</rd:DefaultName>
+        <Top>13.75cm</Top>
+        <Width>4.5cm</Width>
+        <Style>
+          <Format>C2</Format>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>32</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.5cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!MontantRenduTTC.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="MontantPaiementTTC">
+        <rd:DefaultName>MontantPaiementTTC</rd:DefaultName>
+        <Top>11.25cm</Top>
+        <Width>4.5cm</Width>
+        <Style>
+          <Format>C2</Format>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>31</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.5cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!MontantPaiementTTC.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="ModeReglement">
+        <rd:DefaultName>ModeReglement</rd:DefaultName>
+        <Top>10.5cm</Top>
+        <Width>4.5cm</Width>
+        <Style>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>30</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.5cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!ModeReglement.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="Total_196">
+        <rd:DefaultName>Total_196</rd:DefaultName>
+        <Top>12cm</Top>
+        <Width>3.03968cm</Width>
+        <Style>
+          <Format>C2</Format>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>29</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>12.75cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!Total_196.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="Total_55">
+        <rd:DefaultName>Total_55</rd:DefaultName>
+        <Top>11.25cm</Top>
+        <Width>3.03968cm</Width>
+        <Style>
+          <Format>C2</Format>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>28</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>12.75cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!Total_55.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="Total_TTC">
+        <rd:DefaultName>Total_TTC</rd:DefaultName>
+        <Top>9.75cm</Top>
+        <Width>3.03968cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <Format>C2</Format>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>27</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>12.75cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!Total_TTC.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="Total_HT">
+        <rd:DefaultName>Total_HT</rd:DefaultName>
+        <Top>10.5cm</Top>
+        <Width>3.03968cm</Width>
+        <Style>
+          <Format>C2</Format>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>26</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>12.75cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!Total_HT.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="Email">
+        <rd:DefaultName>Email</rd:DefaultName>
+        <CanShrink>true</CanShrink>
+        <Top>4.75cm</Top>
+        <Width>8.5cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>25</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.75cm</Left>
+        <Height>0.25cm</Height>
+        <Value>=First(Fields!Email.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="Pays">
+        <rd:DefaultName>Pays</rd:DefaultName>
+        <CanShrink>true</CanShrink>
+        <Top>4.5cm</Top>
+        <Width>8cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>24</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.75cm</Left>
+        <Height>0.25cm</Height>
+        <Value>=First(Fields!Pays.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="Ville">
+        <rd:DefaultName>Ville</rd:DefaultName>
+        <CanShrink>true</CanShrink>
+        <Top>4.25cm</Top>
+        <Width>8cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>23</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.75cm</Left>
+        <Height>0.25cm</Height>
+        <Value>=First(Fields!Ville.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="CodePostal">
+        <rd:DefaultName>CodePostal</rd:DefaultName>
+        <CanShrink>true</CanShrink>
+        <Top>4cm</Top>
+        <Width>8cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>22</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.75cm</Left>
+        <Height>0.25cm</Height>
+        <Value>=First(Fields!CodePostal.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="AdresseL1">
+        <rd:DefaultName>AdresseL1</rd:DefaultName>
+        <CanShrink>true</CanShrink>
+        <Top>3.75cm</Top>
+        <Width>7.75cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>21</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.75cm</Left>
+        <Height>0.25cm</Height>
+        <Value>=First(Fields!AdresseL1.Value, "CLIDataSet_T_CommandeVente") + vbcrlf + First(Fields!AdresseL2.Value, "CLIDataSet_T_CommandeVente") + vbcrlf + First(Fields!AdresseL3.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="Nom">
+        <rd:DefaultName>Nom</rd:DefaultName>
+        <CanShrink>true</CanShrink>
+        <Top>3.5cm</Top>
+        <Width>8cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>20</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.75cm</Left>
+        <Height>0.25cm</Height>
+        <Value>=First(Fields!Nom.Value, "CLIDataSet_T_CommandeVente") + " " + First(Fields!Prénom.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="Société">
+        <rd:DefaultName>Société</rd:DefaultName>
+        <CanShrink>true</CanShrink>
+        <Top>3.25cm</Top>
+        <Width>8cm</Width>
+        <Style>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>19</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.75cm</Left>
+        <Height>0.25cm</Height>
+        <Value>=First(Fields!Société.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Table Name="table1">
+        <ZIndex>18</ZIndex>
+        <DataSetName>CLIDataSet_T_CommandeVente_Ligne</DataSetName>
+        <Top>7.75cm</Top>
+        <Width>15.7128cm</Width>
+        <Details>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="ID_t_article_version">
+                      <rd:DefaultName>ID_t_article_version</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>5</ZIndex>
+                      <Value>=Fields!ID_t_article_version.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="description_panier">
+                      <rd:DefaultName>description_panier</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>4</ZIndex>
+                      <CanGrow>true</CanGrow>
+                      <Value>=Fields!description_panier.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Qte">
+                      <rd:DefaultName>Qte</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>3</ZIndex>
+                      <Value>=Fields!Qte.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="Code_tva">
+                      <rd:DefaultName>Code_tva</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>2</ZIndex>
+                      <Value>=Fields!Code_tva.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="prix_vente_initial_TTC">
+                      <rd:DefaultName>prix_vente_initial_TTC</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <Format>C2</Format>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>1</ZIndex>
+                      <Value>=Fields!prix_vente_remise_TTC.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="prix_total_TTC">
+                      <rd:DefaultName>prix_total_TTC</rd:DefaultName>
+                      <Style>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <Format>C2</Format>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <Value>=Fields!prix_total_TTC.Value</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.5cm</Height>
+            </TableRow>
+          </TableRows>
+        </Details>
+        <Header>
+          <TableRows>
+            <TableRow>
+              <TableCells>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox8">
+                      <rd:DefaultName>textbox8</rd:DefaultName>
+                      <Style>
+                        <Color>White</Color>
+                        <BackgroundColor>Gray</BackgroundColor>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>11</ZIndex>
+                      <Value>Référence</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox10">
+                      <rd:DefaultName>textbox10</rd:DefaultName>
+                      <Style>
+                        <Color>White</Color>
+                        <BackgroundColor>Gray</BackgroundColor>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>700</FontWeight>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>10</ZIndex>
+                      <Value>Description</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox2">
+                      <rd:DefaultName>textbox2</rd:DefaultName>
+                      <Style>
+                        <Color>White</Color>
+                        <BackgroundColor>Gray</BackgroundColor>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>9</ZIndex>
+                      <Value>Qté</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox1">
+                      <rd:DefaultName>textbox1</rd:DefaultName>
+                      <Style>
+                        <Color>White</Color>
+                        <BackgroundColor>Gray</BackgroundColor>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>8</ZIndex>
+                      <Value>TVA</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox3">
+                      <rd:DefaultName>textbox3</rd:DefaultName>
+                      <Style>
+                        <Color>White</Color>
+                        <BackgroundColor>Gray</BackgroundColor>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>7</ZIndex>
+                      <Value>PU TTC </Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+                <TableCell>
+                  <ReportItems>
+                    <Textbox Name="textbox9">
+                      <rd:DefaultName>textbox9</rd:DefaultName>
+                      <Style>
+                        <Color>White</Color>
+                        <BackgroundColor>Gray</BackgroundColor>
+                        <BorderColor>
+                          <Default>LightGrey</Default>
+                        </BorderColor>
+                        <BorderStyle>
+                          <Default>Solid</Default>
+                        </BorderStyle>
+                        <FontFamily>Tahoma</FontFamily>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>700</FontWeight>
+                        <TextAlign>Right</TextAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                      <ZIndex>6</ZIndex>
+                      <Value>Total TTC</Value>
+                    </Textbox>
+                  </ReportItems>
+                </TableCell>
+              </TableCells>
+              <Height>0.75cm</Height>
+            </TableRow>
+          </TableRows>
+          <RepeatOnNewPage>true</RepeatOnNewPage>
+        </Header>
+        <TableColumns>
+          <TableColumn>
+            <Width>2.25cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>5cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>0.9628cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>1.5cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+          <TableColumn>
+            <Width>3cm</Width>
+          </TableColumn>
+        </TableColumns>
+        <Height>1.25cm</Height>
+      </Table>
+      <Image Name="image1">
+        <Sizing>FitProportional</Sizing>
+        <Top>0.25cm</Top>
+        <Width>4cm</Width>
+        <MIMEType>image/png</MIMEType>
+        <Source>Embedded</Source>
+        <Style />
+        <ZIndex>17</ZIndex>
+        <Height>4.5cm</Height>
+        <Value>logo_chinooksurfshop</Value>
+      </Image>
+      <Textbox Name="textbox7">
+        <Top>5.5cm</Top>
+        <Width>8.75cm</Width>
+        <Style>
+          <FontFamily>C39HrP24DhTt</FontFamily>
+          <FontSize>24pt</FontSize>
+          <TextAlign>Left</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>16</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>1cm</Height>
+        <Value>="*"  &amp; First(Fields!ID_T_CommandeVente.Value, "CLIDataSet_T_CommandeVente") &amp; "*"</Value>
+      </Textbox>
+      <Textbox Name="textbox15">
+        <Top>10.5cm</Top>
+        <Width>2.5cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>15</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>10cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>Montant HT :</Value>
+      </Textbox>
+      <Textbox Name="textbox16">
+        <Top>11.25cm</Top>
+        <Width>2.5cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>14</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>10cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>TVA 5,5 % :</Value>
+      </Textbox>
+      <Textbox Name="textbox17">
+        <Top>12cm</Top>
+        <Width>2.5cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>13</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>10cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>TVA 19,6 % :</Value>
+      </Textbox>
+      <Textbox Name="textbox18">
+        <Top>9.75cm</Top>
+        <Width>2.5cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>12</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>10cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>TOTAL TTC :</Value>
+      </Textbox>
+      <Textbox Name="textbox19">
+        <Top>10.5cm</Top>
+        <Width>4cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>11</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>Mode de règlement :</Value>
+      </Textbox>
+      <Textbox Name="textbox20">
+        <Top>9.75cm</Top>
+        <Width>4cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>10</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>Règlé le :</Value>
+      </Textbox>
+      <Textbox Name="textbox21">
+        <Top>11.25cm</Top>
+        <Width>4cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>9</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>Montant paiement :</Value>
+      </Textbox>
+      <Textbox Name="textbox22">
+        <Top>13.75cm</Top>
+        <Width>4cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>8</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>Montant rendu :</Value>
+      </Textbox>
+      <Textbox Name="textbox5">
+        <Top>6.75cm</Top>
+        <Width>8.75cm</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>7</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.25cm</Height>
+        <Value>="N° de commande / Facture : "  &amp; First(Fields!ID_T_CommandeVente.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="textbox11">
+        <Top>7cm</Top>
+        <Width>8.75cm</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>6</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.25cm</Height>
+        <Value>="Date de commande "  &amp; First(Fields!CreeLe.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="textbox12">
+        <Top>7.25cm</Top>
+        <Width>8.75cm</Width>
+        <Style>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>5</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.25cm</Height>
+        <Value>="Date de facture : "  &amp; First(Fields!FactureLe.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="textbox13">
+        <Top>12cm</Top>
+        <Width>4cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>4</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>N° avoir utilisé : </Value>
+      </Textbox>
+      <Textbox Name="textbox23">
+        <Top>12.75cm</Top>
+        <Width>4.25cm</Width>
+        <Style>
+          <Format>C2</Format>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>3</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>4.5cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!AvoirUtiliseMontant.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+      <Textbox Name="textbox24">
+        <Top>14.5cm</Top>
+        <Width>4cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>2</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>0.25cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>N° d'avoir créé : </Value>
+      </Textbox>
+      <Textbox Name="textbox26">
+        <Top>12.75cm</Top>
+        <Width>3.5cm</Width>
+        <Style>
+          <FontWeight>700</FontWeight>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <ZIndex>1</ZIndex>
+        <CanGrow>true</CanGrow>
+        <Left>9cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>Montant à déduire :</Value>
+      </Textbox>
+      <Textbox Name="textbox27">
+        <Top>12.75cm</Top>
+        <Width>3.03968cm</Width>
+        <Style>
+          <Format>C2</Format>
+          <TextAlign>Right</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Left>12.75cm</Left>
+        <Height>0.63492cm</Height>
+        <Value>=First(Fields!montant_deduire.Value, "CLIDataSet_T_CommandeVente")</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>15.5cm</Height>
+  </Body>
+  <Language>fr-FR</Language>
+  <PageFooter>
+    <PrintOnFirstPage>true</PrintOnFirstPage>
+    <ReportItems>
+      <Textbox Name="textbox6">
+        <rd:DefaultName>textbox6</rd:DefaultName>
+        <Width>15.75cm</Width>
+        <Style>
+          <TextAlign>Center</TextAlign>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+        <CanGrow>true</CanGrow>
+        <Value>Chinook Surfshop SARL île du Vent route de leucate plage 11370 France
+RCS Narbonne B 484 501 481- Siret : 48450148100010
+Tél : (+ 33) 04.68.40.17.17 - Fax : (+ 33) 04.68.40.29.29
+Mél : contact@chinook-leucate.com - Web : www.chinook-leucate.com
+
+</Value>
+      </Textbox>
+    </ReportItems>
+    <Height>2cm</Height>
+    <PrintOnLastPage>true</PrintOnLastPage>
+  </PageFooter>
+  <TopMargin>2.5cm</TopMargin>
+  <PageHeight>29.7cm</PageHeight>
+</Report>

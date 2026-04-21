@@ -1,0 +1,206 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Docker: Attach to Node",
+            "remoteRoot": "/usr/src/app"
+        },
+        {
+            "name": "Docker .NET Attach (Preview)",
+            "type": "docker",
+            "request": "attach",
+            "platform": "netCore",
+            "sourceFileMap": {
+                "/src": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Dev - CLISyncService",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildCLISyncService",
+            "program": "${workspaceFolder}/CLISyncService/bin/Debug/net8.0/CLISyncService.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "brokeredServicePipeName": "vscode",
+            "console": "internalConsole",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+
+        
+        {
+            // Use IntelliSense to find out which attributes exist for C# debugging
+            // Use hover for the description of the existing attributes
+            // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+            "name": "Dev - CLI Minimal Api",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildCliApi",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/CLIMinimalApi/bin/Debug/net8.0/CLIMinimalApi.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/CLIMinimalApi",
+            "stopAtEntry": false,
+            "brokeredServicePipeName": "vscode",
+            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+            // "serverReadyAction": {
+            //      "action": "openExternally",
+            //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            // },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            // Use IntelliSense to find out which attributes exist for C# debugging
+            // Use hover for the description of the existing attributes
+            // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+            "name": "Dev - CLI App",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildCliApp",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/CliApp/bin/Debug/net8.0/CliApp.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/CliApp",
+            "stopAtEntry": false,
+            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+            // "serverReadyAction": {
+            //      "action": "openExternally",
+            //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            // },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Staging - CLISyncService",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildCLISyncService",
+            "program": "${workspaceFolder}/CLISyncService/bin/Debug/net8.0/CLISyncService.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Staging"
+            }
+        },
+
+        
+        {
+            // Use IntelliSense to find out which attributes exist for C# debugging
+            // Use hover for the description of the existing attributes
+            // For further information visit https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger-launchjson.md
+            "name": "Staging - CLI Minimal Api",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildCliApi",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/CLIMinimalApi/bin/Debug/net8.0/CLIMinimalApi.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/CLIMinimalApi",
+            "stopAtEntry": false,
+            // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser
+            // "serverReadyAction": {
+            //      "action": "openExternally",
+            //     "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            // },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Staging"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Local - CLI Minimal Api",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildCliApi",
+            "program": "${workspaceFolder}/CLIMinimalApi/bin/Debug/net8.0/CLIMinimalApi.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/CLIMinimalApi",
+            "stopAtEntry": false,
+            "brokeredServicePipeName": "vscode",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Local"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": "Local - CLISyncService",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildCLISyncService",
+            "program": "${workspaceFolder}/CLISyncService/bin/Debug/net8.0/CLISyncService.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Local"
+            }
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        },
+        {
+            // Utiliser IntelliSense pour déterminer quels attributs existent pour le débogage C#
+            // Utiliser le pointage pour la description des attributs existants
+            // Pour plus d’informations, consultez https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // Si vous avez modifié la version cible de .Net Framework, veillez à mettre à jour le chemin d’accès du programme.
+            "program": "${workspaceFolder}/CLIMulti/bin/Debug/net8.0-maccatalyst/CLIMulti.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/CLIMulti",
+            // Pour plus d’informations sur le champ « console », consultez https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Dev - CLISyncService + CLI Minimal Api",
+            "configurations": [
+                "Dev - CLISyncService",
+                "Dev - CLI Minimal Api"
+            ]
+        },
+        {
+            "name": "Staging - CLISyncService + CLI Minimal Api",
+            "configurations": [
+                "Staging - CLISyncService",
+                "Staging - CLI Minimal Api"
+            ]
+        },
+        {
+            "name": "Local - CLISyncService + CLI Minimal Api",
+            "configurations": [
+                "Local - CLISyncService",
+                "Local - CLI Minimal Api"
+            ]
+        }
+    ]
+
+}

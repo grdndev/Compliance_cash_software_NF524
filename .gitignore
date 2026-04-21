@@ -1,0 +1,19 @@
+# Build outputs
+**/bin/
+**/obj/
+*.user
+*.suo
+.vs/
+
+# Sensitive — ne jamais committer
+*.key
+*.pfx
+*.cer
+
+# Fichiers temporaires
+*.tmp
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
