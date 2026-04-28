@@ -68,8 +68,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=CHRISSSS-PC\SQLDEV;Initial Catalog=CHINOOKSUR;User ID=web;Password=gu"& _ 
-            "nopehovif")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=CHRISSSS-PC\SQLDEV;Initial Catalog=CHINOOKSUR;User ID=web;")>  _
         Public ReadOnly Property LocalCLIConnectionString() As String
             Get
                 Return CType(Me("LocalCLIConnectionString"),String)
@@ -79,8 +78,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=sqkarch.domicile.fr;Initial Catalog=CHINOOKSUR;User ID=CHINOOKSUR;Pas"& _ 
-            "sword=gunopehovif")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=sqkarch.domicile.fr;Initial Catalog=CHINOOKSUR;User ID=CHINOOKSUR;")>  _
         Public ReadOnly Property CLIOLD() As String
             Get
                 Return CType(Me("CLIOLD"),String)
@@ -90,8 +88,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=sqkarch.domicile.fr;Initial Catalog=CHINOOKSUR;User ID=CHINOOKSUR;Pas"& _ 
-            "sword=gunopehovif")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=sqkarch.domicile.fr;Initial Catalog=CHINOOKSUR;User ID=CHINOOKSUR;")>  _
         Public ReadOnly Property CLILOCAL() As String
             Get
                 Return CType(Me("CLILOCAL"),String)

@@ -4,16 +4,36 @@
 *.user
 *.suo
 .vs/
+*.vshost.exe*
+*.pdb
+
+# NuGet
+packages/
+*.nupkg
 
 # Sensitive — ne jamais committer
 *.key
 *.pfx
 *.cer
+*.pem
+*.p12
+.env
+.env.*
+secrets.json
+appsettings.Production.json
+appsettings.Development.json
 
 # Fichiers temporaires
 *.tmp
 *.bak
+*.swp
+*~
+
+# Logs locaux
+*.log
+logs/
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini
