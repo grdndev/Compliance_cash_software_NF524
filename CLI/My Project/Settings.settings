@@ -32,11 +32,5 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=sqkarch.domicile.fr;Initial Catalog=CHINOOKSUR;User ID=CHINOOKSUR;</Value>
     </Setting>
-    <Setting Name="DPDStationNetFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\DPD\Import\</Value>
-    </Setting>
-    <Setting Name="DPDTransporteurId" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">4</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

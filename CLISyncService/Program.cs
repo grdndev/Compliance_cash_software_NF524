@@ -29,6 +29,7 @@ IHost host = Host.CreateDefaultBuilder(args)
 
         services.AddHostedService<Worker>();
         services.AddHostedService<TransfertExpeditor>();
+        services.AddHostedService<TransfertDPD>();
 
     })
     .Build();

@@ -68,11 +68,13 @@
     </Reference>
     <Reference Include="DataGridViewExtension, Version=1.1.1.0, Culture=neutral, PublicKeyToken=81fb70b94a00c054, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\dev\dll\DataGridViewExtension.dll</HintPath>
+      <HintPath>..\lib\DataGridViewExtension.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DGVEPdfExporting, Version=1.1.1.0, Culture=neutral, PublicKeyToken=81fb70b94a00c054, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\dev\dll\DGVEPdfExporting.dll</HintPath>
+      <HintPath>..\lib\DGVEPdfExporting.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.1.0\lib\DocumentFormat.OpenXml.dll</HintPath>
@@ -80,7 +82,8 @@
     </Reference>
     <Reference Include="Interop.Dymo, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\dev\dll\Interop.Dymo.dll</HintPath>
+      <HintPath>..\lib\Interop.Dymo.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="LumenWorks.Framework.IO, Version=3.8.0.0, Culture=neutral, PublicKeyToken=5ad3ea2f85776344, processorArchitecture=MSIL">
       <HintPath>..\packages\LumenWorks.Framework.IO.3.8.0\lib\net20\LumenWorks.Framework.IO.dll</HintPath>
@@ -551,7 +554,6 @@
     <Compile Include="Model\ToCliDto.vb" />
     <Compile Include="ModPrinter.vb" />
     <Compile Include="ModuleCSV.vb" />
-    <Compile Include="ModuleDPD.vb" />
     <Compile Include="ModuleNF525.vb" />
     <Compile Include="NF525_Logging_Complement.vb" />
     <Compile Include="NF525\SignatureHelper.vb" />

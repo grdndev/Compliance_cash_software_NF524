@@ -4237,46 +4237,10 @@ T_CommandeVenteBindingSource.Current.item("numcaisse"))
         'changement de l'état
         T_CommandeVenteBindingSource.Current.item("ID_EtatCommandeVente") = 45
 
-        ' ── Export DPD (Station.NET CargoNET) ────────────────────────────────
-        ' Si le transporteur sélectionné est DPD, générer le fichier V110
-        ' déposé dans le dossier surveillé par Station.NET (mode semi-automatique).
-        ' Le vendeur complète le poids et sélectionne le compte dans Station.NET.
-        Try
-            Dim idTransporteur As Integer = 0
-            If Not IsDBNull(T_CommandeVenteBindingSource.Current.item("ID_T_Transporteur")) Then
-                idTransporteur = Convert.ToInt32(T_CommandeVenteBindingSource.Current.item("ID_T_Transporteur"))
-            End If
-
-            If idTransporteur = My.Settings.DPDTransporteurId Then
-                Dim idCde As Integer = Convert.ToInt32(T_CommandeVenteBindingSource.Current.item("ID_T_CommandeVente"))
-                ' Enregistrer d'abord la commande pour s'assurer que les données sont à jour en base
-                Enregistrer()
-                ' Générer le fichier V110 pour Station.NET
-                Dim cheminFichier As String = ExporterDPD(idCde)
-                MessageBox.Show(
-                    "Fichier DPD créé et déposé dans Station.NET." & vbCrLf & vbCrLf &
-                    "Fichier : " & IO.Path.GetFileName(cheminFichier) & vbCrLf &
-                    "Dossier : " & IO.Path.GetDirectoryName(cheminFichier) & vbCrLf & vbCrLf &
-                    "Dans Station.NET :" & vbCrLf &
-                    "  • Sélectionnez le compte DPD :" & vbCrLf &
-                    "      Classic   066-7485 → Pro/professionnel" & vbCrLf &
-                    "      Predict   066-7486 → Particulier (SMS)" & vbCrLf &
-                    "      Relais    066-7487 → Point Relais" & vbCrLf &
-                    "  • Complétez le poids du colis" & vbCrLf &
-                    "  • Imprimez l'étiquette",
-                    "DPD — Station.NET", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Return ' Enregistrer() déjà appelé ci-dessus
-            End If
-        Catch exDPD As Exception
-            MessageBox.Show(
-                "Attention : la commande a été enregistrée mais le fichier DPD n'a pas pu être créé." & vbCrLf & vbCrLf &
-                "Erreur : " & exDPD.Message & vbCrLf & vbCrLf &
-                "Vérifiez que le dossier DPD est accessible : " & My.Settings.DPDStationNetFolder & vbCrLf &
-                "Vous pouvez relancer l'export depuis le bouton Réexpédier.",
-                "DPD — Erreur export", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End Try
-
-        'Enregistrement dans la table (cas non-DPD)
+        'Enregistrement dans la table.
+        'L'export du fichier transporteur (Colissimo, DPD, …) est pris en
+        'charge par CLISyncService côté serveur, qui poll la base et dépose
+        'les fichiers sur le partage Synology par environnement.
         Enregistrer()
 
     End Sub
