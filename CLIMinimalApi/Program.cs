@@ -423,46 +423,12 @@ app.MapPost("/product/UpdateAvailableLaterMessageAsync", async (IProductService 
 #endregion
 #region Log
 
-// =============================================
-// ❌ NF525 PHASE 1 - ENDPOINTS DÉSACTIVÉS
-// =============================================
-// Date de désactivation: 2026-02-12
-// Raison: Conformité NF525 - Interdiction purge logs
-// Devis Phase 1: "Neutralisation des purges : Suppression définitive des endpoints API /log/Erase*"
-// 
-// Les logs doivent être archivés de manière permanente (NF525).
-// Aucun effacement n'est autorisé, même par un administrateur.
-// 
-// ✅ Solution: Utiliser l'archivage périodique au lieu de la suppression
-// =============================================
+// NF525 — endpoints d'effacement (/log/EraseAll, /log/EraseExceptLast,
+// /log/EraseFrom, /log/EraseFromTo) supprimés définitivement.
+// Conformité NF525 / Phase 1 du devis : interdiction de purge des logs,
+// même par un administrateur. Les logs sont archivés (cf. ExporterArchiveFiscale).
 
-/*
-// ❌ DÉSACTIVÉ POUR NF525 - Ne pas décommenter
-app.MapPost("/log/EraseAll", async (ILogService _logService) =>
-{
-    return  await _logService.EraseAll();
-}).WithTags("Log");
-
-// ❌ DÉSACTIVÉ POUR NF525 - Ne pas décommenter
-app.MapPost("/log/EraseExceptLast", async (ILogService _logService, ToCliDto toCliDto) =>
-{
-    return  await _logService.EraseExceptLast(toCliDto.Number);
-}).WithTags("Log");
-
-// ❌ DÉSACTIVÉ POUR NF525 - Ne pas décommenter
-app.MapPost("/log/EraseFrom", async (ILogService _logService, EraseFromDto eraseFromDto) =>
-{ 
-   return await _logService.EraseFrom(eraseFromDto.fromDateTime);
-}).WithTags("Log");
-
-// ❌ DÉSACTIVÉ POUR NF525 - Ne pas décommenter
-app.MapPost("/log/EraseFromTo", async (ILogService _logService, EraseFromToDto eraseFromToDto) =>
-{
-    return await _logService.EraseFromTo(eraseFromToDto.fromDateTime,eraseFromToDto.toDateTime);
-}).WithTags("Log");
-*/
-
-// ✅ CONSERVÉ - Lecture seule autorisée
+// ✅ Lecture seule autorisée
 app.MapPost("/log/GetAll", async (ILogService _logService) =>
 {
     return Results.Ok(await _logService.GetAll());

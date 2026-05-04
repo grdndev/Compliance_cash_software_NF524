@@ -1,5 +1,7 @@
 Imports System.Data.SqlClient
 Imports System.Globalization
+Imports System.IO
+Imports System.IO.Compression
 Imports System.Text
 
 ''' <summary>
@@ -745,6 +747,293 @@ Public Module ModuleNF525
                 Return BitConverter.ToString(hashBytes).Replace("-", "").ToLower()
             End Using
         End Using
+    End Function
+
+    ''' <summary>
+    ''' Exporte le journal des événements techniques (T_JournalEvenements) au format XML
+    ''' pour inclusion dans l'archive fiscale ZIP. Sortie en lecture seule, signée par
+    ''' la chaîne JET et incluse dans le manifeste signé globalement.
+    ''' </summary>
+    Private Sub ExporterJournalEvenements(dateDebut As Date, dateFin As Date, cheminFichier As String)
+        Dim dateFin23h As Date = dateFin.Date.AddDays(1).AddSeconds(-1)
+        Dim sb As New StringBuilder()
+        sb.AppendLine("<?xml version=""1.0"" encoding=""UTF-8""?>")
+        sb.AppendLine("<JournalEvenements_NF525>")
+        sb.AppendLine("  <PeriodeDebut>" & dateDebut.ToString("yyyy-MM-dd") & "</PeriodeDebut>")
+        sb.AppendLine("  <PeriodeFin>" & dateFin.ToString("yyyy-MM-dd") & "</PeriodeFin>")
+        sb.AppendLine("  <Evenements>")
+
+        Dim sql As String =
+            "SELECT Id_Event, DateEvent, TypeEvent, Description, " &
+            "       AncienneValeur, NouvelleValeur, Utilisateur, " &
+            "       VersionLogiciel, Signature, PreviousSignature " &
+            "FROM T_JournalEvenements " &
+            "WHERE DateEvent BETWEEN @Debut AND @Fin " &
+            "ORDER BY Id_Event"
+
+        Using cnn As New SqlConnection(My.Settings.CLIConnectionString)
+            cnn.Open()
+            Using cmd As New SqlCommand(sql, cnn)
+                cmd.Parameters.AddWithValue("@Debut", dateDebut)
+                cmd.Parameters.AddWithValue("@Fin", dateFin23h)
+                Using reader As SqlDataReader = cmd.ExecuteReader()
+                    While reader.Read()
+                        sb.AppendLine("    <Evenement>")
+                        sb.AppendLine("      <Id>" & reader("Id_Event") & "</Id>")
+                        sb.AppendLine("      <Date>" & CDate(reader("DateEvent")).ToString("yyyy-MM-dd HH:mm:ss") & "</Date>")
+                        sb.AppendLine("      <Type>" & EscaperXml(reader("TypeEvent").ToString()) & "</Type>")
+                        sb.AppendLine("      <Description>" & EscaperXml(reader("Description").ToString()) & "</Description>")
+                        sb.AppendLine("      <AncienneValeur>" & EscaperXml(If(IsDBNull(reader("AncienneValeur")), "", reader("AncienneValeur").ToString())) & "</AncienneValeur>")
+                        sb.AppendLine("      <NouvelleValeur>" & EscaperXml(If(IsDBNull(reader("NouvelleValeur")), "", reader("NouvelleValeur").ToString())) & "</NouvelleValeur>")
+                        sb.AppendLine("      <Utilisateur>" & EscaperXml(If(IsDBNull(reader("Utilisateur")), "", reader("Utilisateur").ToString())) & "</Utilisateur>")
+                        sb.AppendLine("      <VersionLogiciel>" & EscaperXml(If(IsDBNull(reader("VersionLogiciel")), "", reader("VersionLogiciel").ToString())) & "</VersionLogiciel>")
+                        sb.AppendLine("      <Signature>" & If(IsDBNull(reader("Signature")), "", reader("Signature").ToString()) & "</Signature>")
+                        sb.AppendLine("      <SignaturePrecedente>" & If(IsDBNull(reader("PreviousSignature")), "", reader("PreviousSignature").ToString()) & "</SignaturePrecedente>")
+                        sb.AppendLine("    </Evenement>")
+                    End While
+                End Using
+            End Using
+        End Using
+
+        sb.AppendLine("  </Evenements>")
+        sb.AppendLine("</JournalEvenements_NF525>")
+        File.WriteAllText(cheminFichier, sb.ToString(), Encoding.UTF8)
+    End Sub
+
+    ''' <summary>Échappe les caractères XML spéciaux dans les valeurs textuelles.</summary>
+    Private Function EscaperXml(s As String) As String
+        If String.IsNullOrEmpty(s) Then Return ""
+        Return s.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;").Replace("""", "&quot;").Replace("'", "&apos;")
+    End Function
+
+    ''' <summary>
+    ''' Exporte une archive fiscale NF525 au format ZIP scellée par un manifeste
+    ''' signé globalement avec le certificat X.509 (RSA-2048).
+    '''
+    ''' Conformité Phase 4 du devis :
+    '''   "Module exportant les données (ventes, JET, factures) dans un format ZIP
+    '''    scellé par un Manifest signé globalement."
+    '''
+    ''' Contenu de l'archive ZIP produite :
+    '''   - manifest.xml             : liste des fichiers + SHA-256 + signature RSA globale
+    '''   - ventes.xml               : tickets, lignes, ventilation TVA, signatures chaînées
+    '''   - journal_evenements.xml   : T_JournalEvenements pour la période
+    '''   - fec.txt                  : Fichier des Écritures Comptables (Art. A47 A-1 CGI)
+    '''
+    ''' En cas de contrôle fiscal, le vérificateur peut :
+    '''   1. Décompresser le ZIP
+    '''   2. Recalculer le SHA-256 de chaque fichier et le comparer au manifeste
+    '''   3. Vérifier la signature RSA globale du manifeste avec la clé publique X.509
+    '''   4. Vérifier les signatures chaînées internes (tickets + JET) via VerifierIntegriteChaineX509
+    '''
+    ''' NB : nécessite .NET Framework 4.5+ (System.IO.Compression.ZipFile).
+    '''      Compatible avec le passage du projet caisse en .NET 4.8.
+    ''' </summary>
+    ''' <param name="dateDebut">Début de la période à archiver</param>
+    ''' <param name="dateFin">Fin de la période à archiver</param>
+    ''' <param name="cheminZipExport">Chemin complet du fichier .zip à générer</param>
+    Public Sub ExporterArchiveFiscaleZIP(dateDebut As Date, dateFin As Date, cheminZipExport As String)
+        Dim tempDir As String = Path.Combine(Path.GetTempPath(), "NF525_Archive_" & Guid.NewGuid().ToString("N"))
+        Try
+            Directory.CreateDirectory(tempDir)
+
+            ' ── 1. Générer les 3 fichiers de données dans le dossier temporaire ──
+            Dim ventesXml As String = Path.Combine(tempDir, "ventes.xml")
+            ExporterArchiveFiscale(dateDebut, dateFin, ventesXml)
+
+            Dim jetXml As String = Path.Combine(tempDir, "journal_evenements.xml")
+            ExporterJournalEvenements(dateDebut, dateFin, jetXml)
+
+            Dim fecTxt As String = Path.Combine(tempDir, "fec.txt")
+            ExporterFEC(dateDebut, dateFin, fecTxt)
+
+            ' ── 2. Construire le manifeste avec hash SHA-256 de chaque fichier ───
+            Dim fichiers As String() = New String() {ventesXml, jetXml, fecTxt}
+            Dim sbManifest As New StringBuilder()
+            sbManifest.AppendLine("<?xml version=""1.0"" encoding=""UTF-8""?>")
+            sbManifest.AppendLine("<Manifest_NF525>")
+            sbManifest.AppendLine("  <Entreprise>CHINOOK LEUCATE</Entreprise>")
+            sbManifest.AppendLine("  <Siret>48450148100010</Siret>")
+            sbManifest.AppendLine("  <PeriodeDebut>" & dateDebut.ToString("yyyy-MM-dd") & "</PeriodeDebut>")
+            sbManifest.AppendLine("  <PeriodeFin>" & dateFin.ToString("yyyy-MM-dd") & "</PeriodeFin>")
+            sbManifest.AppendLine("  <DateExport>" & Now.ToString("yyyy-MM-dd HH:mm:ss") & "</DateExport>")
+            sbManifest.AppendLine("  <VersionLogiciel>" & Application.ProductVersion & "</VersionLogiciel>")
+            sbManifest.AppendLine("  <Exporteur>" & EscaperXml(If(gLogin, "")) & "</Exporteur>")
+            sbManifest.AppendLine("  <AlgorithmeHash>SHA-256</AlgorithmeHash>")
+            sbManifest.AppendLine("  <AlgorithmeSignature>RSA-2048-SHA256</AlgorithmeSignature>")
+            sbManifest.AppendLine("  <Fichiers>")
+            For Each f As String In fichiers
+                Dim taille As Long = New FileInfo(f).Length
+                Dim h As String = CalculerHashFichier(f)
+                sbManifest.AppendLine("    <Fichier>")
+                sbManifest.AppendLine("      <Nom>" & Path.GetFileName(f) & "</Nom>")
+                sbManifest.AppendLine("      <Taille>" & taille.ToString(CultureInfo.InvariantCulture) & "</Taille>")
+                sbManifest.AppendLine("      <Hash>" & h & "</Hash>")
+                sbManifest.AppendLine("    </Fichier>")
+            Next
+            sbManifest.AppendLine("  </Fichiers>")
+
+            ' ── 3. Signature RSA-2048 globale du contenu du manifeste ────────────
+            ' Les données signées correspondent au manifeste tel quel AVANT ajout
+            ' de la balise <SignatureGlobale>. À la vérification, on retire cette
+            ' balise du XML reçu et on re-signe pour comparer.
+            Dim donneesSignees As String = sbManifest.ToString()
+            Dim signatureGlobale As String
+            Try
+                signatureGlobale = NF525.SignatureHelperPKI.SignWithX509(donneesSignees)
+            Catch exSig As Exception
+                ' Si le certificat X.509 n'est pas configuré, on bascule sur un hash
+                ' SHA-256 du contenu (mode dégradé — non conforme strict mais traçable)
+                LogEventTechnique("WARN_ARCHIVE_ZIP",
+                    "Certificat X.509 indisponible, manifeste scellé par hash SHA-256 uniquement",
+                    "", exSig.Message)
+                Using sha As New System.Security.Cryptography.SHA256Managed()
+                    Dim bytes As Byte() = Encoding.UTF8.GetBytes(donneesSignees)
+                    signatureGlobale = "SHA256:" & BitConverter.ToString(sha.ComputeHash(bytes)).Replace("-", "").ToLower()
+                End Using
+            End Try
+
+            sbManifest.AppendLine("  <SignatureGlobale>" & signatureGlobale & "</SignatureGlobale>")
+            sbManifest.AppendLine("</Manifest_NF525>")
+
+            Dim manifestXml As String = Path.Combine(tempDir, "manifest.xml")
+            File.WriteAllText(manifestXml, sbManifest.ToString(), Encoding.UTF8)
+
+            ' ── 4. Créer le ZIP scellé ──────────────────────────────────────────
+            If File.Exists(cheminZipExport) Then File.Delete(cheminZipExport)
+            Using archive As ZipArchive = ZipFile.Open(cheminZipExport, ZipArchiveMode.Create)
+                archive.CreateEntryFromFile(manifestXml, "manifest.xml", CompressionLevel.Optimal)
+                archive.CreateEntryFromFile(ventesXml, "ventes.xml", CompressionLevel.Optimal)
+                archive.CreateEntryFromFile(jetXml, "journal_evenements.xml", CompressionLevel.Optimal)
+                archive.CreateEntryFromFile(fecTxt, "fec.txt", CompressionLevel.Optimal)
+            End Using
+
+            ' ── 5. Hash final du ZIP pour traçabilité dans le JET ───────────────
+            Dim hashZip As String = CalculerHashFichier(cheminZipExport)
+            Dim tailleZip As Long = New FileInfo(cheminZipExport).Length
+
+            LogEventTechnique("EXPORT_ARCHIVE_ZIP",
+                "Archive ZIP scellée " & dateDebut.ToString("dd/MM/yyyy") & " au " & dateFin.ToString("dd/MM/yyyy"),
+                "",
+                "Fichier: " & Path.GetFileName(cheminZipExport) &
+                " | Taille: " & tailleZip & " octets" &
+                " | SHA-256: " & hashZip)
+
+        Catch ex As Exception
+            LogEventTechnique("ERREUR_EXPORT_ARCHIVE_ZIP", "Erreur archive ZIP : " & ex.Message)
+            Throw
+        Finally
+            ' Nettoyage du dossier temporaire (best-effort)
+            Try
+                If Directory.Exists(tempDir) Then Directory.Delete(tempDir, True)
+            Catch
+            End Try
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Vérifie l'intégrité d'une archive fiscale ZIP NF525 produite par
+    ''' ExporterArchiveFiscaleZIP.
+    '''
+    ''' Étapes de vérification :
+    '''   1. Lit le ZIP, extrait les fichiers en mémoire
+    '''   2. Pour chaque fichier listé dans manifest.xml, recalcule SHA-256 et compare
+    '''   3. Vérifie la SignatureGlobale RSA-2048 du manifeste (clé publique X.509)
+    '''
+    ''' Trace toujours l'opération dans le JET (CONSULTATION_ARCHIVE_ZIP).
+    ''' </summary>
+    ''' <param name="cheminZip">Chemin du fichier ZIP à vérifier</param>
+    ''' <returns>True si l'archive est intègre et la signature valide</returns>
+    Public Function VerifierArchiveFiscaleZIP(cheminZip As String) As Boolean
+        If Not File.Exists(cheminZip) Then
+            Throw New FileNotFoundException("Archive ZIP introuvable : " & cheminZip)
+        End If
+
+        Dim hashZip As String = CalculerHashFichier(cheminZip)
+        Dim integre As Boolean = True
+        Dim erreurs As New System.Collections.Generic.List(Of String)()
+
+        Using archive As ZipArchive = ZipFile.OpenRead(cheminZip)
+            ' ── Extraire le manifeste ──
+            Dim manifestEntry As ZipArchiveEntry = archive.GetEntry("manifest.xml")
+            If manifestEntry Is Nothing Then
+                Throw New InvalidDataException("Le ZIP ne contient pas de manifest.xml")
+            End If
+
+            Dim manifestXml As String
+            Using sr As New StreamReader(manifestEntry.Open(), Encoding.UTF8)
+                manifestXml = sr.ReadToEnd()
+            End Using
+
+            ' ── Vérifier le hash SHA-256 de chaque fichier ──
+            Dim doc As New System.Xml.XmlDocument()
+            doc.LoadXml(manifestXml)
+            Dim noeudsFichiers As System.Xml.XmlNodeList = doc.SelectNodes("/Manifest_NF525/Fichiers/Fichier")
+            For Each noeud As System.Xml.XmlNode In noeudsFichiers
+                Dim nomFichier As String = noeud("Nom").InnerText
+                Dim hashAttendu As String = noeud("Hash").InnerText
+                Dim entry As ZipArchiveEntry = archive.GetEntry(nomFichier)
+                If entry Is Nothing Then
+                    integre = False
+                    erreurs.Add("Fichier manquant dans le ZIP : " & nomFichier)
+                Else
+                    Dim hashCalcule As String
+                    Using sha As New System.Security.Cryptography.SHA256Managed()
+                        Using s As Stream = entry.Open()
+                            Dim ms As New MemoryStream()
+                            s.CopyTo(ms)
+                            ms.Position = 0
+                            Dim bytes As Byte() = sha.ComputeHash(ms)
+                            hashCalcule = BitConverter.ToString(bytes).Replace("-", "").ToLower()
+                        End Using
+                    End Using
+                    If Not String.Equals(hashCalcule, hashAttendu, StringComparison.OrdinalIgnoreCase) Then
+                        integre = False
+                        erreurs.Add("Hash invalide pour " & nomFichier & " (attendu " & hashAttendu & ", calculé " & hashCalcule & ")")
+                    End If
+                End If
+            Next
+
+            ' ── Vérifier la signature globale RSA du manifeste ──
+            Dim sigNoeud As System.Xml.XmlNode = doc.SelectSingleNode("/Manifest_NF525/SignatureGlobale")
+            If sigNoeud IsNot Nothing Then
+                Dim signature As String = sigNoeud.InnerText
+                ' Reconstruire le manifeste sans la balise SignatureGlobale pour re-vérifier
+                Dim idx As Integer = manifestXml.LastIndexOf("  <SignatureGlobale>")
+                If idx > 0 Then
+                    Dim donneesAVerifier As String = manifestXml.Substring(0, idx)
+                    If signature.StartsWith("SHA256:") Then
+                        ' Mode dégradé : juste comparaison SHA-256
+                        Using sha As New System.Security.Cryptography.SHA256Managed()
+                            Dim hashAttendu As String = signature.Substring("SHA256:".Length)
+                            Dim hashCalcule As String = BitConverter.ToString(
+                                sha.ComputeHash(Encoding.UTF8.GetBytes(donneesAVerifier))).Replace("-", "").ToLower()
+                            If Not String.Equals(hashCalcule, hashAttendu, StringComparison.OrdinalIgnoreCase) Then
+                                integre = False
+                                erreurs.Add("Hash global manifeste invalide (mode dégradé)")
+                            End If
+                        End Using
+                    Else
+                        Try
+                            If Not NF525.SignatureHelperPKI.VerifyX509Signature(donneesAVerifier, signature) Then
+                                integre = False
+                                erreurs.Add("Signature RSA globale du manifeste invalide")
+                            End If
+                        Catch exVerif As Exception
+                            integre = False
+                            erreurs.Add("Erreur vérification signature : " & exVerif.Message)
+                        End Try
+                    End If
+                End If
+            End If
+        End Using
+
+        LogEventTechnique("CONSULTATION_ARCHIVE_ZIP",
+            "Vérification archive : " & Path.GetFileName(cheminZip) & " — " & If(integre, "INTEGRE", "ALTEREE"),
+            "",
+            "SHA-256 ZIP: " & hashZip & If(erreurs.Count > 0, " | Erreurs: " & String.Join(" ; ", erreurs.ToArray()), ""))
+
+        Return integre
     End Function
 
 #End Region
