@@ -557,6 +557,10 @@
     <Compile Include="ModPrinter.vb" />
     <Compile Include="ModuleCSV.vb" />
     <Compile Include="ModuleNF525.vb" />
+    <Compile Include="FacturXGenerator.vb" />
+    <Compile Include="FacturXPdfEmbedder.vb" />
+    <Compile Include="EReportingService.vb" />
+    <Compile Include="FactureElectroniqueReceiver.vb" />
     <Compile Include="NF525_Logging_Complement.vb" />
     <Compile Include="NF525\SignatureHelper.vb" />
     <Compile Include="NF525\SignatureHelperPKI.vb" />
