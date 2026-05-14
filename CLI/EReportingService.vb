@@ -13,7 +13,7 @@
 ' Ce service :
 '   - Agrège les clôtures Z journalières par décade
 '   - Génère le XML e-Reporting conforme schéma DGFiP
-'   - Transmet vers l'API de la PDP (configurée dans T_Params)
+'   - Transmet vers l'API de la PDP (configurée dans T_Param)
 '   - Trace le cycle de vie dans T_FactureElectronique_Emise + JET
 '   - Gère les retries et la mise en file en cas d'indisponibilité PDP
 ' =============================================
@@ -141,7 +141,7 @@ Public Class EReportingService
         Dim dt As DataTable = GetDonneesCloture(dateDebut, dateFin)
         If dt.Rows.Count = 0 Then Return "AUCUNE_DONNEE"
 
-        ' Récupérer SIRET / paramètres entreprise depuis T_Params
+        ' Récupérer SIRET / paramètres entreprise depuis T_Param
         Dim siret As String = LireParamString("FacturX_Entreprise_Siret")
         Dim nomEntreprise As String = LireParamString("FacturX_Entreprise_Nom")
 
@@ -251,7 +251,7 @@ Public Class EReportingService
     End Class
 
     ''' <summary>
-    ''' Transmet le XML à la PDP configurée dans T_Params.
+    ''' Transmet le XML à la PDP configurée dans T_Param.
     ''' Configuration nécessaire :
     '''   - PDP_API_URL          : URL de base de la PDP (ex: https://api.pennylane.com/v1/)
     '''   - PDP_API_KEY          : clé d'API (X-API-Key ou Authorization Bearer)
@@ -424,7 +424,7 @@ Public Class EReportingService
     Private Function LireParamString(nom As String) As String
         Using cnn As New SqlConnection(_connectionString)
             cnn.Open()
-            Using cmd As New SqlCommand("SELECT Paramvalue FROM T_Params WHERE Paramname = @N", cnn)
+            Using cmd As New SqlCommand("SELECT Paramvalue FROM T_Param WHERE Paramname = @N", cnn)
                 cmd.Parameters.AddWithValue("@N", nom)
                 Dim r As Object = cmd.ExecuteScalar()
                 If r Is Nothing OrElse r Is DBNull.Value Then Return ""

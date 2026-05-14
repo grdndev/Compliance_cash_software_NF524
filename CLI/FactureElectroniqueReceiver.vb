@@ -86,7 +86,7 @@ Public Class FactureElectroniqueReceiver
                                     "invoices/inbox?status=new", LireParamString("PDP_API_ENDPOINT_INBOX"))
 
         If String.IsNullOrEmpty(baseUrl) OrElse String.IsNullOrEmpty(apiKey) Then
-            Throw New InvalidOperationException("PDP non configurée (T_Params PDP_API_URL / PDP_API_KEY).")
+            Throw New InvalidOperationException("PDP non configurée (T_Param PDP_API_URL / PDP_API_KEY).")
         End If
 
         Dim url As String = baseUrl.TrimEnd("/"c) & "/" & endpoint.TrimStart("/"c)
@@ -323,7 +323,7 @@ Public Class FactureElectroniqueReceiver
     Private Function LireParamString(nom As String) As String
         Using cnn As New SqlConnection(_connectionString)
             cnn.Open()
-            Using cmd As New SqlCommand("SELECT Paramvalue FROM T_Params WHERE Paramname = @N", cnn)
+            Using cmd As New SqlCommand("SELECT Paramvalue FROM T_Param WHERE Paramname = @N", cnn)
                 cmd.Parameters.AddWithValue("@N", nom)
                 Dim r As Object = cmd.ExecuteScalar()
                 If r Is Nothing OrElse r Is DBNull.Value Then Return ""

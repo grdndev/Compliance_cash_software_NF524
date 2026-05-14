@@ -133,7 +133,7 @@ END
 GO
 
 -- ╔══════════════════════════════════════════════════════════════════════════════
--- ║ 4. T_Params — Paramètres Factur-X entreprise (à renseigner par Chinook)
+-- ║ 4. T_Param — Paramètres Factur-X entreprise (à renseigner par Chinook)
 -- ╚══════════════════════════════════════════════════════════════════════════════
 DECLARE @paramsEntreprise TABLE (Cle VARCHAR(100), Defaut VARCHAR(255));
 INSERT INTO @paramsEntreprise VALUES
@@ -161,8 +161,8 @@ OPEN curParams;
 FETCH NEXT FROM curParams INTO @cle, @defaut;
 WHILE @@FETCH_STATUS = 0
 BEGIN
-    IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = @cle)
-        INSERT INTO T_Params (Paramname, Paramvalue) VALUES (@cle, @defaut);
+    IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = @cle)
+        INSERT INTO T_Param (Paramname, Paramvalue) VALUES (@cle, @defaut);
     FETCH NEXT FROM curParams INTO @cle, @defaut;
 END
 CLOSE curParams;
@@ -170,7 +170,7 @@ DEALLOCATE curParams;
 PRINT 'Paramètres entreprise Factur-X initialisés.';
 
 -- ╔══════════════════════════════════════════════════════════════════════════════
--- ║ 5. T_Params — Paramètres PDP (Plateforme de Dématérialisation Partenaire)
+-- ║ 5. T_Param — Paramètres PDP (Plateforme de Dématérialisation Partenaire)
 -- ║    À configurer une fois la PDP choisie (Pennylane, Esker, Sage Network,
 -- ║    Generix, Yooz, etc.). Toutes les valeurs sont vides par défaut.
 -- ╚══════════════════════════════════════════════════════════════════════════════
@@ -196,8 +196,8 @@ OPEN curPdp;
 FETCH NEXT FROM curPdp INTO @cle, @defaut;
 WHILE @@FETCH_STATUS = 0
 BEGIN
-    IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = @cle)
-        INSERT INTO T_Params (Paramname, Paramvalue) VALUES (@cle, @defaut);
+    IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = @cle)
+        INSERT INTO T_Param (Paramname, Paramvalue) VALUES (@cle, @defaut);
     FETCH NEXT FROM curPdp INTO @cle, @defaut;
 END
 CLOSE curPdp;
@@ -212,7 +212,7 @@ UNION ALL
 SELECT 'T_FactureElectronique_Recue', COUNT(*) FROM T_FactureElectronique_Recue;
 
 SELECT Paramname, Paramvalue
-FROM T_Params
+FROM T_Param
 WHERE Paramname LIKE 'FacturX_%' OR Paramname LIKE 'PDP_%' OR Paramname LIKE 'EReporting_%'
 ORDER BY Paramname;
 
@@ -227,16 +227,16 @@ ORDER BY Paramname;
 --    - URL de base
 --    - Clé API (Bearer / APIKEY / BASIC)
 --
--- 3. Renseigner les T_Params correspondants :
---    UPDATE T_Params SET Paramvalue = '<url>'   WHERE Paramname = 'PDP_API_URL';
---    UPDATE T_Params SET Paramvalue = '<key>'   WHERE Paramname = 'PDP_API_KEY';
---    UPDATE T_Params SET Paramvalue = '<type>'  WHERE Paramname = 'PDP_API_AUTH_TYPE';
---    UPDATE T_Params SET Paramvalue = '<nom>'   WHERE Paramname = 'PDP_NOM';
+-- 3. Renseigner les T_Param correspondants :
+--    UPDATE T_Param SET Paramvalue = '<url>'   WHERE Paramname = 'PDP_API_URL';
+--    UPDATE T_Param SET Paramvalue = '<key>'   WHERE Paramname = 'PDP_API_KEY';
+--    UPDATE T_Param SET Paramvalue = '<type>'  WHERE Paramname = 'PDP_API_AUTH_TYPE';
+--    UPDATE T_Param SET Paramvalue = '<nom>'   WHERE Paramname = 'PDP_NOM';
 --
 -- 4. Compléter les paramètres entreprise (TVA intracom, IBAN, etc.) :
---    UPDATE T_Params SET Paramvalue = 'FR12345678901' WHERE Paramname = 'FacturX_Entreprise_TvaIntracom';
---    UPDATE T_Params SET Paramvalue = '<IBAN>'        WHERE Paramname = 'FacturX_Entreprise_IBAN';
---    UPDATE T_Params SET Paramvalue = '<BIC>'         WHERE Paramname = 'FacturX_Entreprise_BIC';
+--    UPDATE T_Param SET Paramvalue = 'FR12345678901' WHERE Paramname = 'FacturX_Entreprise_TvaIntracom';
+--    UPDATE T_Param SET Paramvalue = '<IBAN>'        WHERE Paramname = 'FacturX_Entreprise_IBAN';
+--    UPDATE T_Param SET Paramvalue = '<BIC>'         WHERE Paramname = 'FacturX_Entreprise_BIC';
 --
 -- 5. Tester :
 --    - Émission Factur-X via FacturXGenerator.GenerateXML(idCommande)

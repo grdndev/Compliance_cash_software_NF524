@@ -4,7 +4,7 @@
 --
 -- Ce script :
 --   1. Ajoute DPD dans T_Transporteur (si absent)
---   2. Récupère l'ID DPD attribué et l'enregistre dans T_Params
+--   2. Récupère l'ID DPD attribué et l'enregistre dans T_Param
 --      sous le paramètre IdTTransporteurDPD (utilisé par CLISyncService)
 --   3. Initialise les paramètres FTP/Synology pour l'export DPD
 --
@@ -30,48 +30,48 @@ BEGIN
     PRINT 'Transporteur DPD existe déjà.';
 END
 
--- ── 2. Récupérer l'ID DPD et le stocker dans T_Params ──────────────────────────
+-- ── 2. Récupérer l'ID DPD et le stocker dans T_Param ──────────────────────────
 DECLARE @IdDPD INT;
 SELECT @IdDPD = id_t_transporteur FROM T_Transporteur WHERE libelle = 'DPD';
 
-IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = 'IdTTransporteurDPD')
-    INSERT INTO T_Params (Paramname, Paramvalue) VALUES ('IdTTransporteurDPD', CAST(@IdDPD AS VARCHAR(10)));
+IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = 'IdTTransporteurDPD')
+    INSERT INTO T_Param (Paramname, Paramvalue) VALUES ('IdTTransporteurDPD', CAST(@IdDPD AS VARCHAR(10)));
 ELSE
-    UPDATE T_Params SET Paramvalue = CAST(@IdDPD AS VARCHAR(10)) WHERE Paramname = 'IdTTransporteurDPD';
+    UPDATE T_Param SET Paramvalue = CAST(@IdDPD AS VARCHAR(10)) WHERE Paramname = 'IdTTransporteurDPD';
 
 PRINT 'Param IdTTransporteurDPD = ' + CAST(@IdDPD AS VARCHAR(10));
 
 -- ── 3. Paramètres CLISyncService (TransfertDPD) ────────────────────────────────
 -- Délai entre deux scans (ms) — par défaut 60 secondes
-IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = 'CliTransfertDPDDelay')
-    INSERT INTO T_Params (Paramname, Paramvalue) VALUES ('CliTransfertDPDDelay', '60000');
+IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = 'CliTransfertDPDDelay')
+    INSERT INTO T_Param (Paramname, Paramvalue) VALUES ('CliTransfertDPDDelay', '60000');
 
 -- Date de dernière extraction (initialisée à 1900 pour traiter l'historique
 -- au premier passage — à ajuster manuellement si vous voulez démarrer "now")
-IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = 'CliDateDerniereExtractionDPD')
-    INSERT INTO T_Params (Paramname, Paramvalue) VALUES ('CliDateDerniereExtractionDPD', '1900-01-01 00:00:00');
+IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = 'CliDateDerniereExtractionDPD')
+    INSERT INTO T_Param (Paramname, Paramvalue) VALUES ('CliDateDerniereExtractionDPD', '1900-01-01 00:00:00');
 
 -- Cible FTP/SFTP : Synology par environnement
 --   DEV     → /soDevelopement/DPD/
 --   STAGING → /soStaging/DPD/
 --   PROD    → /soProduction/DPD/
 -- À configurer avec les vraies credentials par Cyril/Christophe
-IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = 'FTP_Host_DPD')
-    INSERT INTO T_Params (Paramname, Paramvalue) VALUES ('FTP_Host_DPD', '');
-IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = 'FTP_UID_DPD')
-    INSERT INTO T_Params (Paramname, Paramvalue) VALUES ('FTP_UID_DPD', '');
-IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = 'FTP_PWD_DPD')
-    INSERT INTO T_Params (Paramname, Paramvalue) VALUES ('FTP_PWD_DPD', '');
-IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = 'FTP_remote_path_DPD')
-    INSERT INTO T_Params (Paramname, Paramvalue) VALUES ('FTP_remote_path_DPD', '/soDevelopement/DPD/');
-IF NOT EXISTS (SELECT 1 FROM T_Params WHERE Paramname = 'FTP_file_name_DPD')
-    INSERT INTO T_Params (Paramname, Paramvalue) VALUES ('FTP_file_name_DPD', 'DPD');
+IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = 'FTP_Host_DPD')
+    INSERT INTO T_Param (Paramname, Paramvalue) VALUES ('FTP_Host_DPD', '');
+IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = 'FTP_UID_DPD')
+    INSERT INTO T_Param (Paramname, Paramvalue) VALUES ('FTP_UID_DPD', '');
+IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = 'FTP_PWD_DPD')
+    INSERT INTO T_Param (Paramname, Paramvalue) VALUES ('FTP_PWD_DPD', '');
+IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = 'FTP_remote_path_DPD')
+    INSERT INTO T_Param (Paramname, Paramvalue) VALUES ('FTP_remote_path_DPD', '/soDevelopement/DPD/');
+IF NOT EXISTS (SELECT 1 FROM T_Param WHERE Paramname = 'FTP_file_name_DPD')
+    INSERT INTO T_Param (Paramname, Paramvalue) VALUES ('FTP_file_name_DPD', 'DPD');
 
 PRINT 'Paramètres CLISyncService DPD initialisés.';
 
 -- ── 4. Vérification ────────────────────────────────────────────────────────────
 SELECT id_t_transporteur, libelle FROM T_Transporteur ORDER BY id_t_transporteur;
-SELECT Paramname, Paramvalue FROM T_Params
+SELECT Paramname, Paramvalue FROM T_Param
  WHERE Paramname LIKE '%DPD%' ORDER BY Paramname;
 
 -- ==============================================================================

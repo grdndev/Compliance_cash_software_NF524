@@ -19,7 +19,7 @@ Imports System.Xml
 
 ''' <summary>
 ''' Générateur du XML Factur-X / EN 16931 pour les factures clients de Chinook.
-''' Lit les paramètres entreprise depuis T_Params (SIRET, TVA intracom, IBAN…)
+''' Lit les paramètres entreprise depuis T_Param (SIRET, TVA intracom, IBAN…)
 ''' et produit le XML CII complet : en-tête, vendeur, acheteur, lignes,
 ''' ventilation TVA, modes de paiement, totaux.
 '''
@@ -74,7 +74,7 @@ Public Class FacturXGenerator
 
 #Region "Lecture des paramètres entreprise et de la facture"
 
-    ''' <summary>Paramètres de l'entreprise émettrice, lus depuis T_Params.</summary>
+    ''' <summary>Paramètres de l'entreprise émettrice, lus depuis T_Param.</summary>
     Public Class ParametresEntreprise
         Public Nom As String = ""
         Public Adresse1 As String = ""
@@ -136,7 +136,7 @@ Public Class FacturXGenerator
         Public TauxTVA As Decimal ' 20.0, 5.5, 10.0, 2.1, 0.0
     End Class
 
-    ''' <summary>Lit les paramètres entreprise depuis T_Params (clés FacturX_*).</summary>
+    ''' <summary>Lit les paramètres entreprise depuis T_Param (clés FacturX_*).</summary>
     Public Shared Function LireParametresEntreprise(connectionString As String) As ParametresEntreprise
         Dim p As New ParametresEntreprise()
         Dim cles As String() = New String() {
@@ -150,7 +150,7 @@ Public Class FacturXGenerator
         Dim valeurs As New System.Collections.Generic.Dictionary(Of String, String)()
         Using cnn As New SqlConnection(connectionString)
             cnn.Open()
-            Using cmd As New SqlCommand("SELECT Paramname, Paramvalue FROM T_Params WHERE Paramname LIKE 'FacturX_Entreprise_%'", cnn)
+            Using cmd As New SqlCommand("SELECT Paramname, Paramvalue FROM T_Param WHERE Paramname LIKE 'FacturX_Entreprise_%'", cnn)
                 Using rdr As SqlDataReader = cmd.ExecuteReader()
                     While rdr.Read()
                         valeurs(rdr.GetString(0)) = If(rdr.IsDBNull(1), "", rdr.GetString(1))
